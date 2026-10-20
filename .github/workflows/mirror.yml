@@ -1,0 +1,61 @@
+# Mirror the main branch to the Epitech organization repository.
+#
+# Why: the Epitech org has SAML SSO and GitHub Actions locked down, so the
+# development happens on this personal repository. The org repository is the
+# one that gets graded, so every commit merged here must land there too, with
+# its original author, date and hash. This workflow pushes main after every
+# push or merge, so nobody has to remember to do it by hand.
+#
+# Setup (once):
+#   1. Create a classic personal access token with the "repo" scope.
+#   2. On the token, "Configure SSO" > Authorize EpitechMscProPromo2028.
+#   3. Save it as the repository secret EPITECH_MIRROR_TOKEN.
+# Without the secret the workflow skips cleanly instead of failing.
+
+name: Mirror to Epitech
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: mirror-to-epitech
+  cancel-in-progress: false
+
+env:
+  TARGET_REPO: EpitechMscProPromo2028/T-DEV-700-LYN-7-1-time_manager-11
+
+jobs:
+  mirror:
+    name: Push main to the Epitech repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check that the mirror token is configured
+        id: token
+        env:
+          TOKEN: ${{ secrets.EPITECH_MIRROR_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::warning::EPITECH_MIRROR_TOKEN is not set, mirror skipped"
+            echo "present=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "present=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout full history
+        if: steps.token.outputs.present == 'true'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Push main to the Epitech repository
+        if: steps.token.outputs.present == 'true'
+        env:
+          TOKEN: ${{ secrets.EPITECH_MIRROR_TOKEN }}
+        run: |
+          # The token travels in an Authorization header, never in the URL,
+          # so it cannot end up in a log line or an error message.
+          AUTH="$(printf 'x-access-token:%s' "$TOKEN" | base64 -w0)"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${AUTH}" \
+            push "https://github.com/${TARGET_REPO}.git" HEAD:main
