@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Gestion · Équipes</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Lexend:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#6B4FBB}a:hover{color:#553C9E}
+.nav-collapsed .nav-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav-collapsed .nav-section{display:none}
+.nav-collapsed .nav-brand{padding:0 !important;justify-content:center}
+.nav-collapsed a{justify-content:center !important;padding:10px 0 !important;position:relative}
+.nav-collapsed .nav-badge{position:absolute;top:0;right:0;padding:0 5px !important;font-size:10px !important;line-height:16px}
+.nav-collapsed .nav-toggle{justify-content:center !important}
+</style>
+
+</head>
+<body>
+
+
+<div style="min-height: 900px; box-sizing: border-box; background: #F4F1FA; font-family: Lexend, system-ui, sans-serif; color: #2A2238; display: flex; flex-wrap: wrap">
+  <nav aria-label="Navigation principale" class="nav-collapsed" style="flex: 0 0 auto; width: 72px; box-sizing: border-box; background: #FFFFFF; border-right: 1px solid #CFC4E4; padding: 24px 16px; display: flex; flex-direction: column; gap: 20px">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px; padding: 0 12px">
+      <div aria-hidden="true" style="width: 32px; height: 32px; border-radius: 999px; background: #6B4FBB; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">TM</div>
+      <span class="nav-label" style="font-weight: 700; font-size: 16px">Time Manager</span>
+    </div>
+    <button type="button" class="nav-toggle" onclick="toggleNav()" aria-label="Agrandir le menu" aria-expanded="false" style="height: 40px; display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 8px; border: 1px solid #CFC4E4; border-radius: 10px; background: #FFFFFF; color: #2A2238; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><span class="nav-label">Réduire</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(180deg); flex: none"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"></path></svg></button>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Mon espace</span>
+      <a href="02-accueil-employe.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></svg><span class="nav-label">Accueil</span></a>
+      <a href="10-mes-pointages.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #6B4FBB; flex: none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span class="nav-label">Pointages</span></a>
+      <a href="11-mon-planning.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #0F766E; flex: none"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span class="nav-label">Planning</span></a>
+      <a href="12-mes-demandes.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #4B5563; flex: none"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 13h6M9 17h6"></path></svg><span class="nav-label">Demandes</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Équipe</span>
+      <a href="03-equipe-membres.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16.5 14.2c2.8.3 5 2.4 5 5.8"></path></svg><span class="nav-label">Membres</span></a>
+      <a href="06-equipe-a-valider.html" style="display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><span style="display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #4B5563; flex: none"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 12.5l2.8 2.8L16 9.5"></path></svg><span class="nav-label">À valider</span></span> <span class="nav-badge" style="background: #6B4FBB; color: #FFFFFF; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 2px 8px">5</span></a>
+      <a href="08-equipe-anomalies.html" style="display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><span style="display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #B93A22; flex: none"><path d="M12 3.5L21.5 20H2.5z"></path><path d="M12 10v4M12 17v.5"></path></svg><span class="nav-label">Anomalies</span></span> <span class="nav-badge" style="background: #8F2A16; color: #FFFFFF; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 2px 8px">4</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Pilotage</span>
+      <a href="09-pilotage-indicateurs.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #6B4FBB; flex: none"><path d="M3 20h18M6 20v-7M12 20V6M18 20V10"></path></svg><span class="nav-label">Indicateurs</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Gestion</span>
+      <a href="13-gestion-utilisateurs.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg><span class="nav-label">Utilisateurs</span></a>
+      <a href="14-gestion-equipes.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; background: #6B4FBB; color: #FFFFFF; font-weight: 600; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #FFFFFF; flex: none"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></svg><span class="nav-label">Équipes</span></a>
+    </div>
+    <div style="margin-top: auto; border-top: 1px solid #CFC4E4; padding-top: 16px">
+      <a href="15-mon-compte.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 18.5c1.4-1.9 3.3-2.8 5.5-2.8s4.1.9 5.5 2.8"></path></svg><span class="nav-label">Mon compte</span></a>
+    </div>
+  </nav>
+  <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 32px; background: #FFFFFF; border-bottom: 3px solid #6B4FBB">
+      <div style="display: flex; flex-direction: column; gap: 2px">
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700">Équipes</h1>
+        <span style="font-size: 13px; color: #574D6B">Département Commercial · 3 équipes</span>
+      </div>
+      <button type="button" style="height: 44px; padding: 0 18px; border: none; border-radius: 10px; background: #6B4FBB; color: #FFFFFF; font: inherit; font-size: 14px; font-weight: 600">+ Créer une équipe</button>
+    </header>
+    <main style="padding: 32px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start">
+      <section aria-label="Liste des équipes" style="flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
+        <a href="14-gestion-equipes.html" aria-current="true" style="background: #FFFFFF; border: 2px solid #6B4FBB; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: #2A2238">
+          <span style="font-weight: 700; font-size: 16px">Ventes Lyon</span>
+          <span style="font-size: 13px; color: #574D6B">Manager : Claire Moreau · <span style="font-family: 'JetBrains Mono', monospace">10</span> membres</span>
+        </a>
+        <a href="14-gestion-equipes.html" style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: #2A2238">
+          <span style="font-weight: 700; font-size: 16px">Ventes Paris</span>
+          <span style="font-size: 13px; color: #574D6B">Manager : Julien Faure · <span style="font-family: 'JetBrains Mono', monospace">12</span> membres</span>
+        </a>
+        <a href="14-gestion-equipes.html" style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; text-decoration: none; color: #2A2238">
+          <span style="font-weight: 700; font-size: 16px">Direction commerciale</span>
+          <span style="font-size: 13px; color: #574D6B">Responsable : Sophie Durand · <span style="font-family: 'JetBrains Mono', monospace">3</span> membres</span>
+        </a>
+      </section>
+      <section aria-labelledby="eq-titre" style="flex: 999 1 560px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 18px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px">
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <h2 id="eq-titre" style="margin: 0; font-size: 20px; font-weight: 700">Ventes Lyon</h2>
+            <span style="font-size: 14px; color: #574D6B">Département Commercial · rattachée à « Direction commerciale »</span>
+          </div>
+          <div style="display: flex; gap: 8px">
+            <button type="button" style="height: 40px; padding: 0 14px; border: 1px solid #6F6385; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">Modifier</button>
+            <button type="button" disabled aria-describedby="eq-suppr-info" style="height: 40px; padding: 0 14px; border: 1px solid #CFC4E4; border-radius: 10px; background: #E6DFF2; color: #574D6B; font: inherit; font-size: 13px; font-weight: 600">Supprimer</button>
+          </div>
+        </div>
+        <span id="eq-suppr-info" style="font-size: 12px; color: #574D6B">Suppression possible uniquement si l'équipe est vide (ses membres ont été transférés).</span>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px">
+          <div style="flex: 1 1 200px; background: #E6DEF8; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; font-weight: 600; color: #4E3596">Manager (N+1 des membres)</span>
+            <span style="font-weight: 700">Claire Moreau</span>
+          </div>
+          <div style="flex: 1 1 200px; background: #E3E7EC; border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 4px">
+            <span style="font-size: 13px; font-weight: 600; color: #374151">N+2</span>
+            <span style="font-weight: 700">Sophie Durand · Directrice commerciale</span>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center">
+          <h3 style="margin: 0; font-size: 16px; font-weight: 700">Membres</h3>
+          <button type="button" style="height: 40px; padding: 0 14px; border: none; border-radius: 10px; background: #6B4FBB; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">+ Ajouter un membre</button>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px">
+            <thead>
+              <tr style="text-align: left; color: #574D6B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em">
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600">Membre</th>
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600">Dans l'équipe depuis</th>
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Actions</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; font-weight: 600">Paul Martin</td><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; font-family: 'JetBrains Mono', monospace">01/03/2024</td><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; text-align: right"><button type="button" style="height: 36px; padding: 0 12px; border: 1px solid #6F6385; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">Transférer…</button></td></tr>
+              <tr><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; font-weight: 600">Julie Bernard</td><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; font-family: 'JetBrains Mono', monospace">15/09/2023</td><td style="padding: 12px 0; border-bottom: 1px solid #E6DFF2; text-align: right"><button type="button" style="height: 36px; padding: 0 12px; border: 1px solid #6F6385; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">Transférer…</button></td></tr>
+              <tr><td style="padding: 12px 0; font-weight: 600">Léa Roux</td><td style="padding: 12px 0; font-family: 'JetBrains Mono', monospace">02/01/2025</td><td style="padding: 12px 0; text-align: right"><button type="button" style="height: 36px; padding: 0 12px; border: 1px solid #6F6385; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">Transférer…</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="background: #E3E7EC; border-radius: 12px; padding: 12px 14px; font-size: 13px; color: #374151">Un employé appartient à une seule équipe à la fois, avec historique (dates d'entrée et de sortie). Circuit du transfert à trancher (TM-100) : validation par l'ancien manager ou modification directe.</div>
+      </section>
+    </main>
+  </div>
+</div>
+
+
+<script>
+function tmApplyNav(e){document.querySelectorAll('nav[aria-label="Navigation principale"]').forEach(function(nav){
+nav.classList.toggle('nav-expanded',e);nav.classList.toggle('nav-collapsed',!e);nav.style.width=e?'232px':'72px';
+var b=nav.querySelector('.nav-toggle');if(b){b.setAttribute('aria-expanded',e?'true':'false');b.setAttribute('aria-label',e?'Réduire le menu':'Agrandir le menu');var i=b.querySelector('svg');if(i)i.style.transform=e?'none':'rotate(180deg)';}});}
+function toggleNav(){var e=!document.querySelector('nav.nav-expanded');tmApplyNav(e);try{localStorage.setItem('tm-nav',e?'1':'0')}catch(_){}}
+try{if(localStorage.getItem('tm-nav')==='1')tmApplyNav(true)}catch(_){}
+</script>
+</body>
+</html>

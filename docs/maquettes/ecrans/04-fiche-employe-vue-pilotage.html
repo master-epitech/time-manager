@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fiche employé · vue pilotage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Lexend:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#6B4FBB}a:hover{color:#553C9E}
+.nav-collapsed .nav-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.nav-collapsed .nav-section{display:none}
+.nav-collapsed .nav-brand{padding:0 !important;justify-content:center}
+.nav-collapsed a{justify-content:center !important;padding:10px 0 !important;position:relative}
+.nav-collapsed .nav-badge{position:absolute;top:0;right:0;padding:0 5px !important;font-size:10px !important;line-height:16px}
+.nav-collapsed .nav-toggle{justify-content:center !important}
+</style>
+
+</head>
+<body>
+
+
+<div style="min-height: 1000px; box-sizing: border-box; background: #F4F1FA; font-family: Lexend, system-ui, sans-serif; color: #2A2238; display: flex; flex-wrap: wrap">
+  <nav aria-label="Navigation principale" class="nav-collapsed" style="flex: 0 0 auto; width: 72px; box-sizing: border-box; background: #FFFFFF; border-right: 1px solid #CFC4E4; padding: 24px 16px; display: flex; flex-direction: column; gap: 20px">
+    <div class="nav-brand" style="display: flex; align-items: center; gap: 10px; padding: 0 12px">
+      <div aria-hidden="true" style="width: 32px; height: 32px; border-radius: 999px; background: #6B4FBB; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px">TM</div>
+      <span class="nav-label" style="font-weight: 700; font-size: 16px">Time Manager</span>
+    </div>
+    <button type="button" class="nav-toggle" onclick="toggleNav()" aria-label="Agrandir le menu" aria-expanded="false" style="height: 40px; display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 0 8px; border: 1px solid #CFC4E4; border-radius: 10px; background: #FFFFFF; color: #2A2238; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer"><span class="nav-label">Réduire</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="transform: rotate(180deg); flex: none"><path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"></path></svg></button>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Mon espace</span>
+      <a href="02-accueil-employe.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"></rect><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"></rect><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"></rect></svg><span class="nav-label">Accueil</span></a>
+      <a href="10-mes-pointages.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #6B4FBB; flex: none"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg><span class="nav-label">Pointages</span></a>
+      <a href="11-mon-planning.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #0F766E; flex: none"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg><span class="nav-label">Planning</span></a>
+      <a href="12-mes-demandes.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #4B5563; flex: none"><path d="M6 3h8l4 4v14H6z"></path><path d="M14 3v4h4M9 13h6M9 17h6"></path></svg><span class="nav-label">Demandes</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Équipe</span>
+      <a href="03-equipe-membres.html" aria-current="page" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; background: #6B4FBB; color: #FFFFFF; font-weight: 600; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #FFFFFF; flex: none"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M16.5 14.2c2.8.3 5 2.4 5 5.8"></path></svg><span class="nav-label">Membres</span></a>
+      <a href="06-equipe-a-valider.html" style="display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><span style="display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #4B5563; flex: none"><rect x="3" y="3" width="18" height="18" rx="3"></rect><path d="M8 12.5l2.8 2.8L16 9.5"></path></svg><span class="nav-label">À valider</span></span> <span class="nav-badge" style="background: #6B4FBB; color: #FFFFFF; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 2px 8px">5</span></a>
+      <a href="08-equipe-anomalies.html" style="display: flex; justify-content: space-between; align-items: center; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><span style="display: inline-flex; align-items: center; gap: 10px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #B93A22; flex: none"><path d="M12 3.5L21.5 20H2.5z"></path><path d="M12 10v4M12 17v.5"></path></svg><span class="nav-label">Anomalies</span></span> <span class="nav-badge" style="background: #8F2A16; color: #FFFFFF; border-radius: 999px; font-size: 12px; font-weight: 600; padding: 2px 8px">4</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Pilotage</span>
+      <a href="09-pilotage-indicateurs.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #6B4FBB; flex: none"><path d="M3 20h18M6 20v-7M12 20V6M18 20V10"></path></svg><span class="nav-label">Indicateurs</span></a>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <span class="nav-section" style="font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #574D6B; padding: 0 12px 6px">Gestion</span>
+      <a href="13-gestion-utilisateurs.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg><span class="nav-label">Utilisateurs</span></a>
+      <a href="14-gestion-equipes.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><rect x="9" y="3" width="6" height="5" rx="1"></rect><rect x="3" y="16" width="6" height="5" rx="1"></rect><rect x="15" y="16" width="6" height="5" rx="1"></rect><path d="M12 8v4M6 16v-4h12v4"></path></svg><span class="nav-label">Équipes</span></a>
+    </div>
+    <div style="margin-top: auto; border-top: 1px solid #CFC4E4; padding-top: 16px">
+      <a href="15-mon-compte.html" style="display: flex; align-items: center; gap: 10px; padding: 9px 12px; border-radius: 10px; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: #574D6B; flex: none"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="10" r="3"></circle><path d="M6.5 18.5c1.4-1.9 3.3-2.8 5.5-2.8s4.1.9 5.5 2.8"></path></svg><span class="nav-label">Mon compte</span></a>
+    </div>
+  </nav>
+  <div style="flex: 999 1 560px; min-width: 0; display: flex; flex-direction: column">
+    <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 32px; background: #FFFFFF; border-bottom: 3px solid #6B4FBB">
+      <div style="display: flex; flex-direction: column; gap: 4px">
+        <a href="03-equipe-membres.html" style="font-size: 13px; text-decoration: none">← Mon équipe</a>
+        <h1 style="margin: 0; font-size: 22px; font-weight: 700">Paul Martin</h1>
+        <span style="font-size: 13px; color: #574D6B">TM-2026-00042 · Ventes Lyon · Temps plein 35 h · 9 h – 17 h</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="fiche-periode" style="font-size: 13px; font-weight: 600">Période</label>
+        <select id="fiche-periode" style="height: 40px; border: 1px solid #6F6385; border-radius: 10px; padding: 0 12px; font: inherit; font-size: 14px; background: #FFFFFF"><option>Ce mois</option><option>Cette semaine</option><option>Personnalisée…</option></select>
+      </div>
+    </header>
+    <main style="padding: 32px; display: flex; flex-direction: column; gap: 24px">
+      <section aria-label="Indicateurs de l'agent" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px">
+        <article style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #574D6B; font-weight: 600">Moyenne / jour</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700">7 h 12</span>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #574D6B; font-weight: 600">Moyenne / semaine</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700">34 h 50</span>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #574D6B; font-weight: 600">Retards</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700">2 <span style="font-size: 14px; font-weight: 500; color: #574D6B">· 10 % des jours</span></span>
+        </article>
+        <article style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #574D6B; font-weight: 600">Heures supplémentaires</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700">+ 3 h 20</span>
+        </article>
+        <article style="background: #FADAD1; border: 1px solid #F0B3A3; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 13px; color: #8F2A16; font-weight: 600">Anomalies ouvertes</span>
+          <span style="font-family: 'JetBrains Mono', monospace; font-size: 26px; font-weight: 700; color: #8F2A16">1</span>
+        </article>
+      </section>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px">
+        <section aria-labelledby="fiche-graph" style="flex: 999 1 480px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 16px">
+          <div style="display: flex; justify-content: space-between; align-items: baseline">
+            <h2 id="fiche-graph" style="margin: 0; font-size: 16px; font-weight: 700">Heures par semaine</h2>
+            <span style="font-size: 12px; color: #574D6B">Trait pointillé = heures dues (35 h)</span>
+          </div>
+          <div role="img" aria-label="Heures par semaine : S40 36 h, S41 35 h, S42 31 h, S43 37 h" style="position: relative; height: 200px; display: flex; align-items: flex-end; gap: 32px; padding: 0 16px; border-bottom: 1px solid #6F6385">
+            <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 170px; border-top: 2px dashed #574D6B"></div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 600">36 h</span><div style="width: 100%; max-width: 56px; height: 175px; background: #6B4FBB; border-radius: 4px 4px 0 0"></div></div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 600">35 h</span><div style="width: 100%; max-width: 56px; height: 170px; background: #6B4FBB; border-radius: 4px 4px 0 0"></div></div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 600">31 h</span><div style="width: 100%; max-width: 56px; height: 150px; background: #6B4FBB; border-radius: 4px 4px 0 0"></div></div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px"><span style="font-size: 12px; font-weight: 600">37 h</span><div style="width: 100%; max-width: 56px; height: 180px; background: #6B4FBB; border-radius: 4px 4px 0 0"></div></div>
+          </div>
+          <div aria-hidden="true" style="display: flex; gap: 32px; padding: 0 16px; font-size: 12px; color: #574D6B"><span style="flex: 1; text-align: center">S40</span><span style="flex: 1; text-align: center">S41</span><span style="flex: 1; text-align: center">S42</span><span style="flex: 1; text-align: center">S43</span></div>
+        </section>
+        <section aria-labelledby="fiche-presence" style="flex: 1 1 280px; min-width: 0; background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 14px">
+          <h2 id="fiche-presence" style="margin: 0; font-size: 16px; font-weight: 700">Présence et soldes</h2>
+          <div role="img" aria-label="Bureau 60 %, télétravail 40 %" style="display: flex; height: 12px; border-radius: 999px; overflow: hidden"><div style="width: 60%; background: #6B4FBB"></div><div style="width: 40%; background: #7CC7BD"></div></div>
+          <div style="display: flex; justify-content: space-between; font-size: 13px"><span>Bureau · 60 %</span><span>Télétravail · 40 %</span></div>
+          <div style="border-top: 1px solid #E6DFF2; padding-top: 12px; display: flex; flex-direction: column; gap: 8px; font-size: 14px">
+            <div style="display: flex; justify-content: space-between"><span>Solde CP</span><strong>12 j</strong></div>
+            <div style="display: flex; justify-content: space-between"><span>Solde RTT</span><strong>5 j</strong></div>
+            <div style="display: flex; justify-content: space-between"><span>Congés pris (période)</span><strong>2 j</strong></div>
+          </div>
+        </section>
+      </div>
+      <section aria-labelledby="fiche-encours" style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px">
+        <h2 id="fiche-encours" style="margin: 0; font-size: 16px; font-weight: 700">Anomalies et demandes en cours</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; background: #FADAD1; border-radius: 14px">
+          <span style="font-size: 14px; color: #8F2A16"><strong>Session incomplète</strong> · mar. 20/10 · entrée 09:05, sortie non pointée</span>
+          <div style="display: flex; gap: 8px">
+            <a href="05-panneau-corriger-un-pointage.html" style="height: 36px; padding: 0 14px; border-radius: 10px; background: #6B4FBB; color: #FFFFFF; display: inline-flex; align-items: center; text-decoration: none; font-size: 13px; font-weight: 600">Corriger</a>
+            <button type="button" style="height: 36px; padding: 0 14px; border: 1px solid #6F6385; border-radius: 10px; background: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600">Demander une justification</button>
+          </div>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 16px; background: #F7D9E6; border-radius: 14px">
+          <span style="font-size: 14px; color: #A83266"><strong>Congé CP</strong> · du 03 au 05/11 · 3 jours · en attente</span>
+          <a href="06-equipe-a-valider.html" style="font-size: 13px; font-weight: 600; text-decoration: none">Traiter dans « À valider » →</a>
+        </div>
+      </section>
+      <section aria-labelledby="fiche-pointages" style="background: #FFFFFF; border: 1px solid #CFC4E4; border-radius: 14px; padding: 20px 24px; display: flex; flex-direction: column; gap: 12px">
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px">
+          <h2 id="fiche-pointages" style="margin: 0; font-size: 16px; font-weight: 700">Pointages détaillés</h2>
+          <span style="font-size: 12px; color: #574D6B">Bloc visible selon la permission « voir le détail » · corrections possibles sur 30 jours</span>
+        </div>
+        <div style="overflow-x: auto">
+          <table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 14px">
+            <thead>
+              <tr style="text-align: left; color: #574D6B; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em">
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600">Jour</th>
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600">Sessions</th>
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600">Total</th>
+                <th scope="col" style="padding: 10px 0; border-bottom: 1px solid #CFC4E4; font-weight: 600"><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Action</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">Ven. 23/10</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">08:30 → en cours</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">3 h 34</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2; text-align: right"><a href="05-panneau-corriger-un-pointage.html" style="font-size: 13px; font-weight: 600; text-decoration: none">Corriger</a></td></tr>
+              <tr><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">Jeu. 22/10</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">08:45 → 12:10 · 13:20 → 17:35</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2">7 h 40</td><td style="padding: 10px 0; border-bottom: 1px solid #E6DFF2; text-align: right"><a href="05-panneau-corriger-un-pointage.html" style="font-size: 13px; font-weight: 600; text-decoration: none">Corriger</a></td></tr>
+              <tr><td style="padding: 10px 0">Mar. 20/10</td><td style="padding: 10px 0; color: #8F2A16">09:05 → <strong>incomplète</strong></td><td style="padding: 10px 0; color: #574D6B">exclue</td><td style="padding: 10px 0; text-align: right"><a href="05-panneau-corriger-un-pointage.html" style="font-size: 13px; font-weight: 600; text-decoration: none">Corriger</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+
+<script>
+function tmApplyNav(e){document.querySelectorAll('nav[aria-label="Navigation principale"]').forEach(function(nav){
+nav.classList.toggle('nav-expanded',e);nav.classList.toggle('nav-collapsed',!e);nav.style.width=e?'232px':'72px';
+var b=nav.querySelector('.nav-toggle');if(b){b.setAttribute('aria-expanded',e?'true':'false');b.setAttribute('aria-label',e?'Réduire le menu':'Agrandir le menu');var i=b.querySelector('svg');if(i)i.style.transform=e?'none':'rotate(180deg)';}});}
+function toggleNav(){var e=!document.querySelector('nav.nav-expanded');tmApplyNav(e);try{localStorage.setItem('tm-nav',e?'1':'0')}catch(_){}}
+try{if(localStorage.getItem('tm-nav')==='1')tmApplyNav(true)}catch(_){}
+</script>
+</body>
+</html>
