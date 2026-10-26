@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Panneau · Corriger un pointage</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&amp;family=Lexend:wght@400;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#6B4FBB}a:hover{color:#553C9E}
+</style>
+
+</head>
+<body>
+
+
+<div style="width: 1440px; height: 900px; box-sizing: border-box; position: relative; background: #F4F1FA; font-family: Lexend, system-ui, sans-serif; color: #2A2238; overflow: hidden">
+  <div aria-hidden="true" style="position: absolute; inset: 0; display: flex">
+    <div style="width: 232px; background: #FFFFFF; border-right: 1px solid #CFC4E4"></div>
+    <div style="flex: 1; display: flex; flex-direction: column; gap: 24px; padding: 32px">
+      <div style="height: 64px; background: #FFFFFF; border-radius: 14px"></div>
+      <div style="height: 120px; background: #FFFFFF; border-radius: 14px"></div>
+      <div style="height: 280px; background: #FFFFFF; border-radius: 14px"></div>
+    </div>
+  </div>
+  <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(20, 24, 30, 0.45)"></div>
+  <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center">
+    <section role="dialog" aria-modal="true" aria-labelledby="corr-titre" style="width: 520px; background: #FFFFFF; border-radius: 14px; padding: 28px; display: flex; flex-direction: column; gap: 20px; box-shadow: 0 20px 48px rgba(0, 0, 0, 0.25)">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 4px">
+          <h2 id="corr-titre" style="margin: 0; font-size: 20px; font-weight: 700">Corriger le pointage</h2>
+          <span style="font-size: 14px; color: #574D6B">Paul Martin · mardi 20 octobre 2026</span>
+        </div>
+        <a href="04-fiche-employe-vue-pilotage.html" aria-label="Fermer" style="width: 36px; height: 36px; border-radius: 999px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: #2A2238; font-size: 20px">×</a>
+      </div>
+      <div style="background: #F4F1FA; border-radius: 14px; padding: 12px 14px; font-size: 13px; display: flex; flex-direction: column; gap: 4px">
+        <span style="color: #574D6B; font-weight: 600">Valeur actuelle</span>
+        <span>Entrée 09:05 · Sortie <strong style="color: #8F2A16">non pointée (session incomplète)</strong></span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="corr-entree" style="font-size: 14px; font-weight: 600">Heure d'entrée</label>
+          <input id="corr-entree" type="time" value="09:05" style="height: 44px; box-sizing: border-box; border: 1px solid #6F6385; border-radius: 10px; padding: 0 12px; font: inherit; font-size: 15px">
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <label for="corr-sortie" style="font-size: 14px; font-weight: 600">Heure de sortie</label>
+          <input id="corr-sortie" type="time" value="17:40" style="height: 44px; box-sizing: border-box; border: 1px solid #6F6385; border-radius: 10px; padding: 0 12px; font: inherit; font-size: 15px">
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="corr-motif" style="font-size: 14px; font-weight: 600">Motif <span style="color: #8F2A16">*</span></label>
+        <select id="corr-motif" style="height: 44px; border: 1px solid #6F6385; border-radius: 10px; padding: 0 12px; font: inherit; font-size: 15px; background: #FFFFFF"><option>Oubli de pointage</option><option>Erreur de pointage</option><option>Déplacement professionnel</option><option>Autre</option></select>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 6px">
+        <label for="corr-commentaire" style="font-size: 14px; font-weight: 600">Commentaire</label>
+        <textarea id="corr-commentaire" rows="2" placeholder="Facultatif" style="box-sizing: border-box; border: 1px solid #6F6385; border-radius: 14px; padding: 10px 12px; font: inherit; font-size: 14px; resize: vertical"></textarea>
+      </div>
+      <p style="margin: 0; font-size: 12px; color: #574D6B">Contrôles du back : 30 derniers jours, pas d'heure future, sortie après l'entrée. L'historique conserve l'ancienne valeur, l'auteur et le motif.</p>
+      <div style="display: flex; justify-content: flex-end; gap: 10px">
+        <a href="04-fiche-employe-vue-pilotage.html" style="height: 44px; padding: 0 18px; border: 1px solid #6F6385; border-radius: 10px; display: inline-flex; align-items: center; text-decoration: none; color: #2A2238; font-weight: 500; font-size: 14px; font-weight: 600">Annuler</a>
+        <a href="04-fiche-employe-vue-pilotage.html" style="height: 44px; padding: 0 18px; border-radius: 10px; background: #6B4FBB; color: #FFFFFF; display: inline-flex; align-items: center; text-decoration: none; font-size: 14px; font-weight: 600">Enregistrer la correction</a>
+      </div>
+    </section>
+  </div>
+</div>
+
+
+</body>
+</html>
