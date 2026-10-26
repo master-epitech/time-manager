@@ -5,7 +5,7 @@ Epitech T-DEV-700. React client, FastAPI server, Postgres, behind a reverse prox
 ## Layout
 
 ```
-client/   React + Vite + TypeScript  (npm run dev | build | test)
+client/   React + Next.js + TypeScript  (npm run dev | build | test)
 server/   FastAPI + psycopg          (uv sync, uv run uvicorn app.main:app --reload)
 proxy/    nginx reverse proxy config: /api -> server, / -> client
 .env.example  the variables every environment needs; copy to .env
