@@ -1,0 +1,49 @@
+.groupe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-1);
+}
+
+.label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--encre);
+}
+
+.champ {
+  min-height: var(--cible-min);
+  padding: 0 var(--espace-3);
+  border: 1.5px solid var(--bordure-champ);
+  border-radius: var(--rayon-m);
+  background: var(--surface);
+  color: var(--encre);
+  font: 400 15px var(--police-texte);
+}
+
+.champ::placeholder {
+  color: var(--gris);
+}
+
+.champ:focus-visible {
+  border-color: var(--lilas);
+  border-radius: var(--rayon-m);
+}
+
+.champErreur {
+  border-color: var(--anomalie);
+  border-width: 2px;
+}
+
+.aide {
+  font-size: 13px;
+  color: var(--gris);
+}
+
+.erreur {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-1);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--anomalie-texte);
+}

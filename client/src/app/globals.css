@@ -1,49 +1,103 @@
+/* ==========================================================================
+   Charte « Lilas Pro » — jetons de design (TM-61)
+   Source unique des couleurs, typographies, rayons et espacements.
+   Les composants n'utilisent JAMAIS de couleur en dur : toujours var(--…).
+   Contrastes vérifiés WCAG AA ; un statut n'est jamais porté par la seule couleur.
+   ========================================================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Marque */
+  --lilas: #6b4fbb;
+  --lilas-hover: #553c9e;
+  --lilas-teinte: #e6def8;
+  --lilas-teinte-legere: #f0ecfa;
+
+  /* Code couleur des domaines (toujours associé à une icône) */
+  --temps: var(--lilas);
+  --temps-teinte: var(--lilas-teinte);
+  --conges: #a83266;
+  --conges-teinte: #f7d9e6;
+  --teletravail: #0f766e;
+  --teletravail-teinte: #cfece7;
+  --anomalie: #b93a22;
+  --anomalie-teinte: #fadad1;
+  --anomalie-texte: #8f2a16;
+  --demande: #4b5563;
+  --demande-teinte: #e3e7ec;
+
+  /* Neutres */
+  --encre: #2a2238;
+  --gris: #574d6b;
+  --fond: #f4f1fa;
+  --surface: #ffffff;
+  --bordure: #cfc4e4;
+  --bordure-ligne: #e6dff2;
+  --bordure-champ: #6f6385;
+
+  /* Typographies (variables injectées par next/font dans layout.tsx) */
+  --police-texte: var(--font-lexend), system-ui, sans-serif;
+  --police-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Échelles */
+  --rayon-s: 6px;
+  --rayon-m: 10px;
+  --rayon-l: 14px;
+  --espace-1: 4px;
+  --espace-2: 8px;
+  --espace-3: 12px;
+  --espace-4: 16px;
+  --espace-5: 24px;
+  --espace-6: 32px;
+  --cible-min: 44px; /* taille minimale d'une zone cliquable (accessibilité) */
+  --anneau-focus: 0 0 0 3px var(--surface), 0 0 0 5px var(--lilas);
+  --ombre-carte: 0 1px 2px rgb(42 34 56 / 6%);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html {
-  height: 100%;
+/* Reset minimal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  min-height: 100%;
 }
 
 body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--fond);
+  color: var(--encre);
+  font-family: var(--police-texte);
+  font-size: 16px;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: var(--lilas);
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+/* Focus visible et cohérent partout (navigation clavier) */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--anneau-focus);
+  border-radius: var(--rayon-s);
+}
+
+/* Heures et durées : chiffres à chasse fixe */
+.mono {
+  font-family: var(--police-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Texte lu par les lecteurs d'écran mais invisible à l'écran */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }

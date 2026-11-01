@@ -1,0 +1,78 @@
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espace-2);
+  min-height: var(--cible-min);
+  padding: 0 var(--espace-5);
+  border: 2px solid transparent;
+  border-radius: var(--rayon-m);
+  font: 600 15px/1 var(--police-texte);
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.bouton:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.s {
+  min-height: 36px; /* réservé aux zones denses (tableaux), jamais seul sur mobile */
+  padding: 0 var(--espace-3);
+  font-size: 14px;
+}
+
+.primaire {
+  background: var(--lilas);
+  color: var(--surface);
+}
+.primaire:hover:not(:disabled) {
+  background: var(--lilas-hover);
+}
+
+.secondaire {
+  background: var(--surface);
+  border-color: var(--lilas);
+  color: var(--lilas);
+}
+.secondaire:hover:not(:disabled) {
+  background: var(--lilas-teinte-legere);
+}
+
+.discret {
+  background: transparent;
+  color: var(--encre);
+}
+.discret:hover:not(:disabled) {
+  background: var(--lilas-teinte-legere);
+}
+
+.danger {
+  background: var(--anomalie);
+  color: var(--surface);
+}
+.danger:hover:not(:disabled) {
+  background: var(--anomalie-texte);
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: tourne 0.7s linear infinite;
+}
+
+@keyframes tourne {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation-duration: 2s;
+  }
+}
