@@ -1,0 +1,23 @@
+.entete {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espace-4);
+}
+
+.titre {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.sousTitre {
+  margin-top: var(--espace-1);
+  color: var(--gris);
+}
+
+.actions {
+  display: flex;
+  gap: var(--espace-2);
+}

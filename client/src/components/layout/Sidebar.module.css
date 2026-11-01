@@ -1,0 +1,211 @@
+.nav {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+  padding: var(--espace-4) var(--espace-3);
+  background: var(--surface);
+  border-right: 1px solid var(--bordure);
+  overflow-y: auto;
+  transition: width 0.2s ease;
+}
+
+.agrandie {
+  width: 232px;
+}
+.reduite {
+  width: 72px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nav {
+    transition: none;
+  }
+}
+
+/* --- Marque --- */
+.marque {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  padding: 0 var(--espace-1);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.logo {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rayon-m);
+  background: var(--lilas);
+  color: var(--surface);
+  font: 700 15px var(--police-mono);
+}
+
+/* --- Bouton Réduire / Agrandir --- */
+.bascule {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 36px;
+  padding: 0 var(--espace-3);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-m);
+  background: var(--surface);
+  color: var(--gris);
+  font: 600 13px var(--police-texte);
+  cursor: pointer;
+}
+.bascule:hover {
+  background: var(--lilas-teinte-legere);
+}
+.chevron {
+  flex: none;
+  transition: transform 0.2s ease;
+}
+.reduite .chevron {
+  transform: rotate(180deg);
+}
+
+/* --- Sections et liens --- */
+.sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+}
+
+.section ul,
+.pied ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.titreSection {
+  padding: var(--espace-2) var(--espace-3) var(--espace-1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--gris);
+}
+
+.lien {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  min-height: var(--cible-min);
+  padding: 0 var(--espace-3);
+  border-radius: var(--rayon-m);
+  color: var(--encre);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+}
+.lien:hover {
+  background: var(--lilas-teinte-legere);
+}
+.actif,
+.actif:hover {
+  background: var(--lilas);
+  color: var(--surface);
+}
+
+.icone {
+  flex: none;
+  display: grid;
+}
+
+.pastille {
+  margin-left: auto;
+  min-width: 22px;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: var(--anomalie);
+  color: var(--surface);
+  font: 700 12px/22px var(--police-mono);
+  text-align: center;
+}
+
+/* --- Pied : Mon compte + utilisateur --- */
+.pied {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+  padding-top: var(--espace-3);
+  border-top: 1px solid var(--bordure-ligne);
+}
+
+.utilisateur {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  padding: var(--espace-1);
+}
+.utilisateur strong {
+  display: block;
+  font-size: 14px;
+}
+.utilisateur small {
+  display: block;
+  font-size: 12px;
+  color: var(--gris);
+}
+.avatar {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--lilas-teinte);
+  color: var(--lilas-hover);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* --- Mode réduit : icônes seules, libellés gardés pour les lecteurs d'écran --- */
+.reduite .libelle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.reduite .titreSection {
+  height: 1px;
+  padding: 0;
+  margin: var(--espace-1) var(--espace-2);
+  overflow: hidden;
+  background: var(--bordure-ligne);
+  color: transparent;
+}
+.reduite .marque,
+.reduite .utilisateur {
+  justify-content: center;
+  padding: 0;
+}
+.reduite .lien,
+.reduite .bascule {
+  justify-content: center;
+  padding: 0;
+}
+.reduite .pastille {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  min-width: 18px;
+  padding: 0 4px;
+  font-size: 10px;
+  line-height: 16px;
+}
