@@ -1,0 +1,32 @@
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.temps {
+  background: var(--temps-teinte);
+  color: var(--lilas-hover);
+}
+.conges {
+  background: var(--conges-teinte);
+  color: var(--conges);
+}
+.teletravail {
+  background: var(--teletravail-teinte);
+  color: var(--teletravail);
+}
+.anomalie {
+  background: var(--anomalie-teinte);
+  color: var(--anomalie-texte);
+}
+.demande {
+  background: var(--demande-teinte);
+  color: var(--demande);
+}
