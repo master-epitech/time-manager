@@ -1,0 +1,38 @@
+$kind: collection
+description: |-
+  Contrat API de la v1 MVP de Time Manager, aligné sur `trinity_market_db-4.sql`.
+
+  Périmètre :
+  - Auth simple (login, Microsoft SSO, logout, me, profil actif).
+  - Organisation mono-tenant, départements, équipes.
+  - Comptes, profils, features.
+  - Pointage simple (entrée/sortie, sessions, validation).
+  - Absences, soldes, planning, télétravail.
+  - Référentiels (régimes, jours fériés, types d'absence, configuration).
+  - Anomalies et corrections simples.
+  - Dashboard, notifications, exports CSV.
+
+  Hors v1 (bonus) : code de pointage, score de confiance, mode dégradé,
+  multi-organisations, audit, RGPD, appareils, plages IP, OTP.
+
+  Conventions :
+  - JWT Bearer.
+  - Pagination `page` / `page_size` (max 100).
+  - Erreurs `{ error: { code, message, details? }, requestId }`.
+  - Variables Postman : `base_url`, `access_token`, `organization_id`,
+    `team_id`, `user_id` (snake_case, conventions FastAPI/Python).
+  - Variables de chemin/query en snake_case (`user_id`, `team_id`, `date_from`,
+    `page_size`), conventions FastAPI/Python.
+  - Champs JSON en camelCase, alignés sur les colonnes SQL
+    (`first_name` → `firstName`, `start_date` → `startDate`, etc.).
+    Côté FastAPI/Pydantic, utiliser des alias (`alias_generator=to_camel`)
+    si les modèles sont en snake_case.
+variables:
+  base_url: https://api.time-manager.example/v1
+  access_token: ""
+auth:
+  - id: 55f03290-0360-41b9-bdef-7947d887cb8d
+    type: bearer
+    name: bearer auth
+    credentials:
+      token: "{{access_token}}"

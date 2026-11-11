@@ -1,0 +1,10 @@
+$kind: http-request
+name: Configuration publique Microsoft (client, tenant, redirect, scopes)
+description: ""
+url: "{{base_url}}/auth/microsoft/config"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Configuration publique Microsoft (client, tenant, redirect, scop.resources/examples
+order: 2000

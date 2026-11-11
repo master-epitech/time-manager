@@ -1,0 +1,49 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/notifications?unread_only=false&page=1&page_size=20"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    unread_only: "false"
+    page: "1"
+    page_size: "20"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "f58a09be-4ae3-2739-7686-07d1f6bae4d5",
+            "type": "string",
+            "title": "string",
+            "message": "string",
+            "isRead": false,
+            "readAt": "1972-05-22T08:24:26.497Z",
+            "createdAt": "1981-11-03T09:37:28.476Z"
+          },
+          {
+            "id": "65992c25-f063-abee-480c-b2cfc0cdd616",
+            "type": "string",
+            "title": "string",
+            "message": "string",
+            "isRead": false,
+            "readAt": "1961-01-31T02:56:30.837Z",
+            "createdAt": "2006-11-08T00:58:14.822Z"
+          }
+        ],
+        "unreadCount": 7239
+      }
+order: 1000

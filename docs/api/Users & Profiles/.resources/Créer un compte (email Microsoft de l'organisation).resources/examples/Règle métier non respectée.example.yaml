@@ -1,0 +1,55 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "prenom.nom@trinity-market.example",
+        "profileCode": "EMPLOYEE",
+        "departmentId": "8c8a8d0b-f9ab-fcd5-d1c0-0417154c73de",
+        "authProvider": "MICROSOFT",
+        "sendMicrosoftInvitation": true,
+        "microsoftOid": "string",
+        "phone": "string",
+        "teamId": "726da361-4e4d-5523-fd72-a1f6ef4586ee",
+        "jobTitle": "string",
+        "contractType": "CDD",
+        "hireDate": "1984-10-27",
+        "matricule": "string"
+      }
+response:
+  statusCode: 422
+  statusText: Unprocessable Entity (WebDAV) (RFC 4918)
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "string",
+          "details": [
+            {
+              "field": "string",
+              "message": "string"
+            },
+            {
+              "field": "string",
+              "message": "string"
+            }
+          ]
+        },
+        "requestId": "79ea697c-adda-1172-a255-ef54354cdf53"
+      }
+order: 5000

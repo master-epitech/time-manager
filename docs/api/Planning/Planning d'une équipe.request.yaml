@@ -1,0 +1,17 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams/:team_id/planning?date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+pathVariables:
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Planning d'une équipe.resources/examples
+order: 1000

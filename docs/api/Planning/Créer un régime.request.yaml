@@ -1,0 +1,26 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/work-schedules"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "weeklyMinutes": 5938,
+      "startTime": "08:00",
+      "endTime": "17:00",
+      "lateToleranceMin": 15,
+      "annualRttDays": 0,
+      "isForfaitDays": false,
+      "days": [
+        3,
+        4
+      ]
+    }
+settings: {}
+examples: ./.resources/Créer un régime.resources/examples
+order: 8000

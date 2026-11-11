@@ -1,0 +1,28 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/exports/clock-events?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: text/csv
+  queryParams:
+    scope: SELF
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: text/csv
+  body:
+    type: text
+    content: string
+order: 1000

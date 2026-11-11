@@ -1,0 +1,23 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/profiles/:profile_code/duplicate"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: profile_code
+    value: MANAGER
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "code": "MANAGER_COPY",
+      "label": "Manager (copie)",
+      "hierarchyLevel": 3822
+    }
+settings: {}
+examples: ./.resources/Dupliquer un profil.resources/examples
+order: 16000

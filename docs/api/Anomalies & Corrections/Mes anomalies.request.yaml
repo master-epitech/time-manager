@@ -1,0 +1,11 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/anomalies?status=RESOLUE"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  status: RESOLUE
+settings: {}
+examples: ./.resources/Mes anomalies.resources/examples
+order: 1000

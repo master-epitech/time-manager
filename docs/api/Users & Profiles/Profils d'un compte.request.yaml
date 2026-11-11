@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users/:user_id/profiles"
+method: GET
+headers:
+  Accept: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Profils d'un compte.resources/examples
+order: 8000

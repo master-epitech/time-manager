@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/notifications/:notification_id/read"
+method: POST
+pathVariables:
+  - key: notification_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Marquer comme lue.resources/examples
+order: 2000

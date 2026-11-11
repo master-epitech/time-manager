@@ -1,0 +1,22 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/absence-types/:type_id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: type_id
+    value: "1862"
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "label": "string",
+      "hasCounter": true
+    }
+settings: {}
+examples: ./.resources/Modifier un type d'absence.resources/examples
+order: 3000

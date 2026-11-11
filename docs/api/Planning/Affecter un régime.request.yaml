@@ -1,0 +1,22 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users/:user_id/work-schedule"
+method: PUT
+headers:
+  Content-Type: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "workScheduleId": "ac53d1c3-d9a0-31a2-d9db-21ea3cb9ed42",
+      "startDate": "1985-06-22",
+      "endDate": "1994-11-17"
+    }
+settings: {}
+examples: ./.resources/Affecter un régime.resources/examples
+order: 12000

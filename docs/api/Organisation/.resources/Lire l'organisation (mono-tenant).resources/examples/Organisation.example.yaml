@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/organisation"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "2bc5305a-583e-195e-fe81-0d2d9e244f8a",
+        "code": "TRINITY",
+        "name": "Trinity Market",
+        "country": "string",
+        "countryCode": "FR",
+        "regionCode": "FR-ALSACE-MOSELLE",
+        "timezone": "Europe/Paris",
+        "matriculePrefix": "TM",
+        "emailDomain": "trinity-market.example",
+        "microsoftTenantId": "common",
+        "isActive": true
+      }
+order: 1000

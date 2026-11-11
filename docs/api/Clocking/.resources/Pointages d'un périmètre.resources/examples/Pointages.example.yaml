@@ -1,0 +1,87 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/clock-events?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11&status=REJETE&page=1&page_size=20"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    scope: SELF
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+    status: REJETE
+    page: "1"
+    page_size: "20"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "dafc1e27-6a53-0be1-6cf4-2a5c236ac960",
+            "userId": "fe994402-39af-c575-e47b-0ad4e0b43f45",
+            "type": "SORTIE",
+            "workMode": "REMOTE",
+            "occurredAt": "2022-12-03T23:17:50.219Z",
+            "status": "REJETE",
+            "user": {
+              "id": "34b0897d-cdc9-ef25-4b2d-27cf83a87a9a",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "QSxG92vIY-Y3JZ@APsfadPdXwvOjLhv.ae",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "teamId": "1f6c56b3-cf6a-8212-c05e-7142238fb89f",
+            "declaredAt": "1988-08-03T18:49:27.462Z",
+            "source": "APP",
+            "validatedBy": "e0fccb8f-86a5-105d-6cfa-64e13a2250ef",
+            "validatedAt": "1971-01-11T17:10:34.982Z",
+            "validationNote": "string"
+          },
+          {
+            "id": "bf3522ac-b58e-71dc-b42f-4f27b8689e53",
+            "userId": "adae4976-e236-b7f7-d5db-607be1532b9a",
+            "type": "ENTREE",
+            "workMode": "REMOTE",
+            "occurredAt": "1968-09-17T00:07:51.632Z",
+            "status": "CORRIGE",
+            "user": {
+              "id": "25652734-c5f0-abe1-79dc-dddad4c037c1",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "HVYRCYwSox@vMqhMVjCgSQNWLT.wfiq",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "teamId": "051e540a-1d0c-6f9f-3398-9e15457063bd",
+            "declaredAt": "1992-08-28T23:58:41.071Z",
+            "source": "WEB",
+            "validatedBy": "c72af8ac-a27b-a5a4-a40c-7c90ccd18683",
+            "validatedAt": "2011-08-21T18:06:22.830Z",
+            "validationNote": "string"
+          }
+        ],
+        "meta": {
+          "page": 6081,
+          "pageSize": 1383,
+          "total": 8154,
+          "totalPages": 9164
+        }
+      }
+order: 1000

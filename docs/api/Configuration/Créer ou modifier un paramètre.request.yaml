@@ -1,0 +1,23 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/config/:config_key"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: config_key
+    value: CLOCK_MIN_GAP_SEC
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "value": "string",
+      "module": "string",
+      "description": "string"
+    }
+settings: {}
+examples: ./.resources/Créer ou modifier un paramètre.resources/examples
+order: 4000

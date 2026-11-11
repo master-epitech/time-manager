@@ -1,0 +1,50 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/profiles"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "profileCode": "MANAGER",
+        "startDate": "2020-07-30",
+        "endDate": "2015-12-11",
+        "reason": "string",
+        "orderPriority": 1
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "b0fe384e-1fb4-b046-9efd-800f3d89bc65",
+        "profile": {
+          "id": 2370,
+          "code": "MANAGER",
+          "label": "Team Manager",
+          "hierarchyLevel": 2030,
+          "isSystem": false,
+          "featuresCount": 7121
+        },
+        "startDate": "2025-07-30",
+        "endDate": "2006-08-05",
+        "reason": "string",
+        "orderPriority": 7453,
+        "isActive": false
+      }
+order: 1000

@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/dashboard/me?date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+settings: {}
+examples: ./.resources/Mes indicateurs.resources/examples
+order: 1000

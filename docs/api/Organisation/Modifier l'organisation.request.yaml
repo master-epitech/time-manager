@@ -1,0 +1,24 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/organisation"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "country": "string",
+      "countryCode": "string",
+      "regionCode": "string",
+      "timezone": "string",
+      "matriculePrefix": "string",
+      "emailDomain": "string",
+      "microsoftTenantId": "string",
+      "isActive": false
+    }
+settings: {}
+examples: ./.resources/Modifier l'organisation.resources/examples
+order: 2000

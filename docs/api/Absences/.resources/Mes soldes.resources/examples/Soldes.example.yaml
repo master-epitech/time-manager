@@ -1,0 +1,64 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/leave-balances?period=2026"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    period: "2026"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "userId": "abb5191e-1f83-02c9-9cdf-840f5e0b92de",
+            "user": {
+              "id": "7cb422e3-c2e6-4386-3a6a-90ebf1ab35a3",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "Mnj8sHecDVLsxXT@AtjhoAqcDmfmMYLvFaJVCFxbZIq.vp",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "typeCode": "string",
+            "label": "string",
+            "period": "string",
+            "totalDays": 6997.9796023108065,
+            "usedDays": 7569.98808356002,
+            "remainingDays": 8808.153250720352
+          },
+          {
+            "userId": "d40072a6-ff7c-fa1b-c6ae-ad52bd944d33",
+            "user": {
+              "id": "df2072a7-c310-fe72-46a0-d739c8083bdf",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "JNo@BIGgMJWyfMivWGRqpbzwta.add",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": true
+            },
+            "typeCode": "string",
+            "label": "string",
+            "period": "string",
+            "totalDays": 7992.301280610263,
+            "usedDays": 1074.1971572861075,
+            "remainingDays": 9395.834265742451
+          }
+        ]
+      }
+order: 1000

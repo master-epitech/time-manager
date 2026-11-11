@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/config/:config_key"
+method: DELETE
+pathVariables:
+  - key: config_key
+    value: CLOCK_MIN_GAP_SEC
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Supprimer un paramètre.resources/examples
+order: 5000

@@ -1,0 +1,50 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams/:team_id/manager"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: team_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "userId": "48aeea15-3099-c3ee-18d5-ebdab58fb95e",
+        "startDate": "1961-01-22",
+        "endDate": "1969-12-13",
+        "reason": "string"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "string",
+          "details": [
+            {
+              "field": "string",
+              "message": "string"
+            },
+            {
+              "field": "string",
+              "message": "string"
+            }
+          ]
+        },
+        "requestId": "d3fd3af2-385e-c8e7-4e10-d161bcbc8291"
+      }
+order: 2000

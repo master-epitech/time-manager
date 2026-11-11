@@ -1,0 +1,70 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/absences?status=REFUSEE"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    status: REFUSEE
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "dc870160-ca2d-3d6c-668c-10a9deea10e2",
+            "userId": "04a98f85-8955-170e-3328-dab22c795d55",
+            "user": {
+              "id": "6f941575-a292-0f93-6575-6685ec00679f",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "HjY@ZdqhcvrVCWhJPkgGLbEi.vd",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": false
+            },
+            "typeId": 30,
+            "typeCode": "string",
+            "typeLabel": "string",
+            "startDate": "1972-06-19",
+            "endDate": "2001-07-19",
+            "reason": "string",
+            "status": "EN_ATTENTE",
+            "daysCount": 4765
+          },
+          {
+            "id": "5b34478f-58cf-8259-aab6-73acbebfeeab",
+            "userId": "7aadb913-1e86-8dc5-7d90-339449b86eee",
+            "user": {
+              "id": "f8051436-3e1c-8e10-6c45-e249a3f94d42",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "OiAWzC-Ni1hwd@RJRmyTzvwqrAvjDNiAmKFw.mqz",
+              "matricule": "string",
+              "status": "SUSPENDU",
+              "isActive": true
+            },
+            "typeId": 4818,
+            "typeCode": "string",
+            "typeLabel": "string",
+            "startDate": "1959-11-09",
+            "endDate": "1972-11-13",
+            "reason": "string",
+            "status": "REFUSEE",
+            "daysCount": 4711
+          }
+        ]
+      }
+order: 1000

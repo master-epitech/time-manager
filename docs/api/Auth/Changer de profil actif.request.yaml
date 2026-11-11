@@ -1,0 +1,16 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/auth/active-profile"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "profileCode": "MANAGER"
+    }
+settings: {}
+examples: ./.resources/Changer de profil actif.resources/examples
+order: 7000

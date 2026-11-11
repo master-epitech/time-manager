@@ -1,0 +1,7 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/notifications/read-all"
+method: POST
+settings: {}
+examples: ./.resources/Tout marquer comme lu.resources/examples
+order: 3000

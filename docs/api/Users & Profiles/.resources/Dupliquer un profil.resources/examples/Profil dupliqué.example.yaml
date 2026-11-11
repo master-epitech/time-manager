@@ -1,0 +1,40 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/profiles/:profile_code/duplicate"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: profile_code
+      value: MANAGER
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "code": "MANAGER_COPY",
+        "label": "Manager (copie)",
+        "hierarchyLevel": 3822
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1126,
+        "code": "MANAGER",
+        "label": "Team Manager",
+        "hierarchyLevel": 185,
+        "isSystem": false,
+        "featuresCount": 877
+      }
+order: 1000

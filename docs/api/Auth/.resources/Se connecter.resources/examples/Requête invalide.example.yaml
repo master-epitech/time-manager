@@ -1,0 +1,43 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/auth/login"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "lea.dubois@trinity-market.example",
+        "password": "MotDePasse!2026"
+      }
+response:
+  statusCode: 400
+  statusText: Bad Request
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "string",
+          "details": [
+            {
+              "field": "string",
+              "message": "string"
+            },
+            {
+              "field": "string",
+              "message": "string"
+            }
+          ]
+        },
+        "requestId": "79ea697c-adda-1172-a255-ef54354cdf53"
+      }
+order: 2000

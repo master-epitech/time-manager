@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/assignment"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "departmentId": "f1c2bb3a-8c8f-aa65-4b9f-b052f2235b80",
+        "startDate": "1963-05-17",
+        "teamId": "49c19a75-5216-b4ea-6ec1-08ad57505789",
+        "jobTitle": "string",
+        "isPrimary": true,
+        "endDate": "2018-07-24"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

@@ -1,0 +1,21 @@
+$kind: http-request
+description: |
+  Lie le `microsoft_oid` du compte Microsoft au compte Time Manager courant.
+  Refuser si l'OID est déjà lié à un autre compte (`409`).
+url: "{{base_url}}/auth/microsoft/link"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "string",
+      "redirectUri": "https://shKvNYfDxcQV.qeRjejEwY.vnrEeW3RUPMN2+,uX,YmxHV+M-SAgxDJW5QdxtJwy9DgGcNqlrT",
+      "state": "string",
+      "codeVerifier": "string"
+    }
+settings: {}
+examples: ./.resources/Lier mon compte Microsoft (utilisateur connecté).resources/examples
+order: 4000

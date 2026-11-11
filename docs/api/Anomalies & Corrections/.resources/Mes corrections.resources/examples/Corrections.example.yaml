@@ -1,0 +1,76 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/corrections"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "41bf7bf8-43d2-3119-d42d-eba7a4f1500c",
+            "userId": "864afc8d-26e9-2b1b-e1a2-32cc84755e8c",
+            "user": {
+              "id": "b3f07c9f-616c-e626-c5f6-5b6b19f3ae06",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "ffOJQ@GlqSBoJKrKpz.tnyt",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "anomalyId": "12fd5324-519a-7c0e-6d13-4065dbd31bca",
+            "workDate": "1990-12-01",
+            "proposedEntryAt": "2013-05-19T09:25:44.524Z",
+            "proposedExitAt": "2005-04-28T16:28:04.005Z",
+            "workMode": "REMOTE",
+            "reason": "string",
+            "status": "REFUSEE",
+            "decidedBy": "feba5d11-3546-0525-7523-6479c2c42d47",
+            "decidedAt": "1978-08-21T01:21:44.581Z",
+            "decisionNote": "string",
+            "createdEntryId": "2613cd4e-115e-61b8-4416-1f67e041d4f3",
+            "createdExitId": "67554da8-f61b-7052-3b65-8cb7db596c50"
+          },
+          {
+            "id": "b707d5e2-dfb5-43f8-736a-581c22fd510a",
+            "userId": "368d0d03-a224-1459-844e-6bb592183b71",
+            "user": {
+              "id": "8d1260bb-225e-b415-ae9b-e8ef9e83692c",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "p4f4pv@aUEAfulcTyuMkOxyxhT.hnk",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": false
+            },
+            "anomalyId": "aa9ff559-005c-17f7-df40-cc2a8eb1dcdb",
+            "workDate": "1998-01-08",
+            "proposedEntryAt": "1981-08-28T12:21:47.983Z",
+            "proposedExitAt": "1984-08-06T01:54:47.239Z",
+            "workMode": "BUREAU",
+            "reason": "string",
+            "status": "EN_ATTENTE",
+            "decidedBy": "42ab3134-cfac-8736-14f3-f5573241f34b",
+            "decidedAt": "1959-06-06T14:50:49.029Z",
+            "decisionNote": "string",
+            "createdEntryId": "2b79c610-43d4-cff9-ea22-c25857417061",
+            "createdExitId": "6878a256-6793-fc01-bc45-1ea2ae347bc1"
+          }
+        ]
+      }
+order: 1000

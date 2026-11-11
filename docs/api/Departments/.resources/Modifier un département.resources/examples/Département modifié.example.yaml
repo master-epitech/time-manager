@@ -1,0 +1,47 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/departments/:department_id"
+  method: PATCH
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: department_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "isActive": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "0cda3380-f8ec-1f63-0f35-89084a8b240b",
+        "code": "string",
+        "name": "string",
+        "isActive": true,
+        "manager": {
+          "id": "07da1f12-e2fd-52b9-dd27-246d29d340b8",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "lc0vq6unr@B.wrvz",
+          "matricule": "string",
+          "status": "SORTI",
+          "isActive": false
+        },
+        "teamsCount": 4934
+      }
+order: 1000

@@ -1,0 +1,13 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/clock-events/to-validate?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  scope: SELF
+  team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+settings: {}
+examples: ./.resources/Pointages en attente de validation.resources/examples
+order: 5000

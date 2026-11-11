@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/absence-types"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "RECUP",
+      "label": "Récupération",
+      "hasCounter": false
+    }
+settings: {}
+examples: ./.resources/Créer un type d'absence.resources/examples
+order: 2000

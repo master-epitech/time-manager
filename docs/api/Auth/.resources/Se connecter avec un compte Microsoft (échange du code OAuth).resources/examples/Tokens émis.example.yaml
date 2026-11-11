@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/auth/microsoft"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": "string",
+        "redirectUri": "https://shKvNYfDxcQV.qeRjejEwY.vnrEeW3RUPMN2+,uX,YmxHV+M-SAgxDJW5QdxtJwy9DgGcNqlrT",
+        "state": "string",
+        "codeVerifier": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "accessToken": "string",
+        "tokenType": "Bearer",
+        "expiresIn": 8445
+      }
+order: 1000

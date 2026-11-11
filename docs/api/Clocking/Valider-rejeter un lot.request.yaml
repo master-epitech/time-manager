@@ -1,0 +1,21 @@
+$kind: http-request
+name: Valider/rejeter un lot
+description: ""
+url: "{{base_url}}/clock-events/validate-batch"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "eventIds": [
+        "94709585-a79e-945f-5dc3-631e88f512bf"
+      ],
+      "decision": "REJETER",
+      "note": "string"
+    }
+settings: {}
+examples: ./.resources/Valider-rejeter un lot.resources/examples
+order: 8000

@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/public-holidays?year=2026&scope=ENTREPRISE"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  year: "2026"
+  scope: ENTREPRISE
+settings: {}
+examples: ./.resources/Lister les jours fériés.resources/examples
+order: 13000

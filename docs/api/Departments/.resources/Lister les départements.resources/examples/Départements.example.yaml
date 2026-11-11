@@ -1,0 +1,58 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/departments"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "a2e1a7fa-e361-ec0c-0e4f-07ac77ee8c2d",
+            "code": "string",
+            "name": "string",
+            "isActive": false,
+            "manager": {
+              "id": "3a3753ea-4ba3-7652-a769-2a2d081c15db",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "uE5vr@NUkbdsSe.vidr",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": true
+            },
+            "teamsCount": 6178
+          },
+          {
+            "id": "f1cfebf9-a7ab-a84a-12bf-d6d592a1eaca",
+            "code": "string",
+            "name": "string",
+            "isActive": true,
+            "manager": {
+              "id": "b5b0e3c0-20ff-3975-a7eb-b636e6134bde",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "iBz2A0C5KkzK9h@eACd.fefo",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": false
+            },
+            "teamsCount": 9912
+          }
+        ]
+      }
+order: 1000

@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/absence-types"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Types d'absence.resources/examples
+order: 1000

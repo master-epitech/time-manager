@@ -1,0 +1,74 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/leave-balances?period=2026&user_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&type_id=1862&page=1&page_size=20"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    period: "2026"
+    user_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    type_id: "1862"
+    page: "1"
+    page_size: "20"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "userId": "ee8f90fc-cbd9-4d1f-0986-20bfff98ec5f",
+            "user": {
+              "id": "b9c5a720-b8eb-8f2b-4389-f775c960278a",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "zleRHE2Mm@lrsHdpqrtxNCBhDBsUoDtC.cloh",
+              "matricule": "string",
+              "status": "SUSPENDU",
+              "isActive": false
+            },
+            "typeCode": "string",
+            "label": "string",
+            "period": "string",
+            "totalDays": 5962.032794486731,
+            "usedDays": 5390.260675922036,
+            "remainingDays": 7299.2685018107295
+          },
+          {
+            "userId": "acae0cd5-cf79-b14f-9d27-9a717a279f74",
+            "user": {
+              "id": "63922d49-7318-a440-8758-cad3ce8a0157",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "cjTHnFfUm@UwWQoALa.mrf",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "typeCode": "string",
+            "label": "string",
+            "period": "string",
+            "totalDays": 1167.5247782841325,
+            "usedDays": 1474.4042651727796,
+            "remainingDays": 6209.818723145872
+          }
+        ],
+        "meta": {
+          "page": 668,
+          "pageSize": 3288,
+          "total": 3014,
+          "totalPages": 4411
+        }
+      }
+order: 1000

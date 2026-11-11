@@ -1,0 +1,36 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/telework"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "isoWeekday": 6,
+        "startDate": "1960-09-25",
+        "endDate": "2004-02-18"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "20a6a425-1199-9ccd-5c99-119d02bdcc17",
+        "userId": "11e6def0-ecc6-a37f-2817-047d71c9c12c",
+        "isoWeekday": 2488,
+        "startDate": "2024-07-25",
+        "endDate": "1998-01-31",
+        "validatedBy": "c8621c0b-1abb-7c82-6dd4-c2fdf882446e",
+        "validatedAt": "2005-08-29T12:55:03.252Z"
+      }
+order: 1000

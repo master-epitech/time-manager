@@ -1,0 +1,31 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/auth/login"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "email": "lea.dubois@trinity-market.example",
+        "password": "MotDePasse!2026"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "accessToken": "string",
+        "tokenType": "Bearer",
+        "expiresIn": 8445
+      }
+order: 1000

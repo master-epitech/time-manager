@@ -1,0 +1,17 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/auth/change-password"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "currentPassword": "string",
+      "newPassword": "stringstring"
+    }
+settings: {}
+examples: ./.resources/Changer son mot de passe.resources/examples
+order: 8000

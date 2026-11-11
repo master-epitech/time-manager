@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/telework"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Mon télétravail.resources/examples
+order: 4000

@@ -1,0 +1,11 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/leave-balances?period=2026"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  period: "2026"
+settings: {}
+examples: ./.resources/Mes soldes.resources/examples
+order: 5000

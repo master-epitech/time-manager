@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/telework"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "isoWeekday": 6,
+      "startDate": "1960-09-25",
+      "endDate": "2004-02-18"
+    }
+settings: {}
+examples: ./.resources/Demander un télétravail.resources/examples
+order: 5000

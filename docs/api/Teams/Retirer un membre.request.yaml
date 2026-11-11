@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams/:team_id/members/:user_id"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Retirer un membre.resources/examples
+order: 7000

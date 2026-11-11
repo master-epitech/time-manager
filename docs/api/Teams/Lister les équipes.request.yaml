@@ -1,0 +1,11 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams?department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+settings: {}
+examples: ./.resources/Lister les équipes.resources/examples
+order: 1000

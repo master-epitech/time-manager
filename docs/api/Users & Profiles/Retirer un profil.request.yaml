@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users/:user_id/profiles/:assignment_id"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+  - key: assignment_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Retirer un profil.resources/examples
+order: 10000

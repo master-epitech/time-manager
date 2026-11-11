@@ -1,0 +1,22 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams/managers/batch"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "teamIds": [
+        "a159c624-4c73-5500-70ee-f3630267a588"
+      ],
+      "userId": "7f61f591-5f8a-ce5b-0a6d-287359f8c705",
+      "startDate": "2003-11-11",
+      "endDate": "1978-09-18",
+      "reason": "string"
+    }
+settings: {}
+examples: ./.resources/Nommer un responsable pour plusieurs équipes.resources/examples
+order: 3000

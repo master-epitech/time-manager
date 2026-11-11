@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/public-holidays"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "scope": "ENTREPRISE",
+        "day": "1956-09-17",
+        "label": "string",
+        "countryCode": "FR",
+        "regionCode": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 5667,
+        "scope": "REGIONAL",
+        "countryCode": "string",
+        "regionCode": "string",
+        "day": "1969-04-23",
+        "label": "string",
+        "isExcluded": true,
+        "exclusionReason": "string"
+      }
+order: 1000

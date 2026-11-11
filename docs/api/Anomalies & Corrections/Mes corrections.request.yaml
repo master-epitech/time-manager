@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/corrections"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Mes corrections.resources/examples
+order: 5000

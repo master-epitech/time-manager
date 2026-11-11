@@ -1,0 +1,34 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users?page=1&page_size=20&q=lea&status=ACTIF&profile_code=MANAGER&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: page
+    value: "1"
+    disabled: false
+  - key: page_size
+    value: "20"
+    disabled: false
+  - key: q
+    value: lea
+    disabled: false
+    description: |
+      Recherche libre et insensible à la casse sur le nom, le prénom,
+      l'email, le matricule et le poste. Vide = tous les comptes.
+  - key: status
+    value: ACTIF
+    disabled: false
+  - key: profile_code
+    value: MANAGER
+    disabled: false
+  - key: department_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+settings: {}
+examples: ./.resources/Lister les comptes.resources/examples
+order: 1000
