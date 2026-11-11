@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/work-schedules"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Lister les régimes.resources/examples
+order: 7000

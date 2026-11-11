@@ -1,0 +1,17 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/auth/login"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "lea.dubois@trinity-market.example",
+      "password": "MotDePasse!2026"
+    }
+settings: {}
+examples: ./.resources/Se connecter.resources/examples
+order: 1000

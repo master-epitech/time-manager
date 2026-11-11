@@ -1,0 +1,25 @@
+$kind: http-request
+description: |
+  Échange le code d'autorisation Microsoft (Authorization Code Flow + PKCE)
+  contre des tokens Time Manager. Le compte est retrouvé par `microsoft_oid`
+  (claim `oid` de l'id_token), **jamais par email**. Mode strict : aucune
+  auto-liaison par email. Le compte doit avoir été provisionné par le RH
+  (invitation) ou lié via `/auth/microsoft/link`. Si aucun compte n'est lié,
+  retourner `403 AUTH_MICROSOFT_NOT_LINKED`.
+url: "{{base_url}}/auth/microsoft"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "string",
+      "redirectUri": "https://shKvNYfDxcQV.qeRjejEwY.vnrEeW3RUPMN2+,uX,YmxHV+M-SAgxDJW5QdxtJwy9DgGcNqlrT",
+      "state": "string",
+      "codeVerifier": "string"
+    }
+settings: {}
+examples: ./.resources/Se connecter avec un compte Microsoft (échange du code OAuth).resources/examples
+order: 3000

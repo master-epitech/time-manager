@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/corrections?scope=SELF&status=REFUSEE&page=1&page_size=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  scope: SELF
+  status: REFUSEE
+  page: "1"
+  page_size: "20"
+settings: {}
+examples: ./.resources/Corrections d'un périmètre.resources/examples
+order: 7000

@@ -1,0 +1,16 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/clock-events"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "type": "SORTIE"
+    }
+settings: {}
+examples: ./.resources/Pointer (entrée ou sortie).resources/examples
+order: 1000

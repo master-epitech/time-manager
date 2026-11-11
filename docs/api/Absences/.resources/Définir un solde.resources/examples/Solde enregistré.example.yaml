@@ -1,0 +1,54 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/leave-balances/:type_id"
+  method: PUT
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+    - key: type_id
+      value: "1862"
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "period": "2026",
+        "acquiredDays": 9972.835315857083,
+        "adjustmentDays": 305.2430017851293
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "userId": "2b8da5ea-e570-737e-ff75-1c3d980f024f",
+        "user": {
+          "id": "2ef5cb27-020e-d32a-29e9-81d089b65831",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "JJk7nzQWbN9@SQvcbVSkWJfYaxUcDLirrDMbU.pp",
+          "matricule": "string",
+          "status": "SUSPENDU",
+          "isActive": true
+        },
+        "typeCode": "string",
+        "label": "string",
+        "period": "string",
+        "totalDays": 3856.486745644361,
+        "usedDays": 4483.556307386607,
+        "remainingDays": 4189.015903975815
+      }
+order: 1000

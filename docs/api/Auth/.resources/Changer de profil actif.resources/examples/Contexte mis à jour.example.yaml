@@ -1,0 +1,120 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/auth/active-profile"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "profileCode": "MANAGER"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "user": {
+          "id": "14f7c94d-751c-7875-84cb-7398bbcd3a9d",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "ZzZ-oi6@iW.ywjg",
+          "matricule": "string",
+          "status": "SUSPENDU",
+          "isActive": true,
+          "phone": "string",
+          "contractType": "PRESTATAIRE",
+          "hireDate": "2009-02-12",
+          "departureDate": "2019-04-13",
+          "jobTitle": "string",
+          "departmentId": "4c52f426-ec06-3403-ed55-b44f9d2cdeb5",
+          "departmentName": "string",
+          "teamId": "5bad7745-a8b3-2b57-efe4-553e2cd23f08",
+          "teamName": "string",
+          "profileCodes": [
+            "string",
+            "string"
+          ],
+          "authProvider": "BOTH",
+          "invitationStatus": "EXPIRED"
+        },
+        "organisation": {
+          "id": "7208bcdc-6a43-f458-8aec-8b389265b8e6",
+          "code": "TRINITY",
+          "name": "Trinity Market",
+          "country": "string",
+          "countryCode": "FR",
+          "regionCode": "FR-ALSACE-MOSELLE",
+          "timezone": "Europe/Paris",
+          "matriculePrefix": "TM",
+          "emailDomain": "trinity-market.example",
+          "microsoftTenantId": "common",
+          "isActive": false
+        },
+        "profiles": [
+          {
+            "id": "af67faa4-69b4-6c9b-5ac0-d4c0e793b31c",
+            "profile": {
+              "id": 5239,
+              "code": "MANAGER",
+              "label": "Team Manager",
+              "hierarchyLevel": 6167,
+              "isSystem": false,
+              "featuresCount": 2717
+            },
+            "startDate": "2023-04-23",
+            "endDate": "1952-01-29",
+            "reason": "string",
+            "orderPriority": 7937,
+            "isActive": false
+          },
+          {
+            "id": "40087b41-fb5c-ffd1-4e6a-fff13bc4bbd9",
+            "profile": {
+              "id": 4233,
+              "code": "MANAGER",
+              "label": "Team Manager",
+              "hierarchyLevel": 1131,
+              "isSystem": false,
+              "featuresCount": 8775
+            },
+            "startDate": "1989-04-03",
+            "endDate": "2022-11-28",
+            "reason": "string",
+            "orderPriority": 7081,
+            "isActive": false
+          }
+        ],
+        "activeProfile": {
+          "id": 9315,
+          "code": "MANAGER",
+          "label": "Team Manager",
+          "hierarchyLevel": 4377,
+          "isSystem": false,
+          "featuresCount": 409
+        },
+        "features": [
+          {
+            "code": "string",
+            "label": "string",
+            "scope": "SELF",
+            "module": "string"
+          },
+          {
+            "code": "string",
+            "label": "string",
+            "scope": "NONE",
+            "module": "string"
+          }
+        ]
+      }
+order: 1000

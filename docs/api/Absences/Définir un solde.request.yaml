@@ -1,0 +1,27 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users/:user_id/leave-balances/:type_id"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+  - key: type_id
+    value: "1862"
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "period": "2026",
+      "acquiredDays": 9972.835315857083,
+      "adjustmentDays": 305.2430017851293
+    }
+settings: {}
+examples: ./.resources/Définir un solde.resources/examples
+order: 13000

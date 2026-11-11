@@ -1,0 +1,21 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/corrections"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "workDate": "2003-11-23",
+      "proposedEntryAt": "1991-02-25T14:57:22.277Z",
+      "proposedExitAt": "1957-06-24T22:47:04.240Z",
+      "workMode": "BUREAU",
+      "reason": "string",
+      "anomalyId": "1a6c90ce-8ca4-ac30-14ef-c2dc59b65adb"
+    }
+settings: {}
+examples: ./.resources/Demander une correction.resources/examples
+order: 6000

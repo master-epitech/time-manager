@@ -1,0 +1,13 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/notifications?unread_only=false&page=1&page_size=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  unread_only: "false"
+  page: "1"
+  page_size: "20"
+settings: {}
+examples: ./.resources/Mes notifications.resources/examples
+order: 1000

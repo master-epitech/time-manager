@@ -1,0 +1,35 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/auth/microsoft/config"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "clientId": "string",
+        "tenantId": "common",
+        "redirectUri": "http://lRKkOfMIj.yffbgrgD85TK",
+        "scopes": [
+          "openid",
+          "profile",
+          "email",
+          "User.Read"
+        ],
+        "emailDomain": "trinity-market.example",
+        "authorizationEndpoint": "https://yrG.zyowEBCxC0V+LXwg++QM3M"
+      }
+order: 1000

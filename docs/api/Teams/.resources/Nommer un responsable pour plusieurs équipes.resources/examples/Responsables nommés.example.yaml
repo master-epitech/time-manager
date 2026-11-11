@@ -1,0 +1,70 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams/managers/batch"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "teamIds": [
+          "a159c624-4c73-5500-70ee-f3630267a588"
+        ],
+        "userId": "7f61f591-5f8a-ce5b-0a6d-287359f8c705",
+        "startDate": "2003-11-11",
+        "endDate": "1978-09-18",
+        "reason": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "updated": 1669,
+        "teams": [
+          {
+            "id": "2ebb22e4-42a6-20f2-843d-5c914b388a4e",
+            "departmentId": "c0fd58dc-568e-b48d-9a5b-8d70ef99ce20",
+            "code": "string",
+            "name": "string",
+            "isActive": true,
+            "membersCount": 2970,
+            "manager": {
+              "id": "906ea181-2032-a9e9-1ef7-fb90b1a579f1",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "GMS21@ucVzFyXc.fr",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            }
+          },
+          {
+            "id": "c6d1c3f4-4285-6df7-3135-1f3acda31760",
+            "departmentId": "9ce71e92-4e38-6fcc-1db5-b10c7ddce2ac",
+            "code": "string",
+            "name": "string",
+            "isActive": false,
+            "membersCount": 125,
+            "manager": {
+              "id": "f4687d08-71a0-090d-92c9-6e9bae63b676",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "Rua2q8o@cEa.gs",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": false
+            }
+          }
+        ]
+      }
+order: 1000

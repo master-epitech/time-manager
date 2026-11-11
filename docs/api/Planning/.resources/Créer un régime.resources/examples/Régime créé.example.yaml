@@ -1,0 +1,50 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/work-schedules"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "name": "string",
+        "weeklyMinutes": 2795,
+        "startTime": "08:00",
+        "endTime": "17:00",
+        "lateToleranceMin": 15,
+        "annualRttDays": 0,
+        "isForfaitDays": false,
+        "days": [
+          3,
+          5
+        ]
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "dfe932c1-c5f0-72be-13e7-fdc07372cad3",
+        "name": "string",
+        "weeklyMinutes": 6210,
+        "startTime": "string",
+        "endTime": "string",
+        "lateToleranceMin": 139,
+        "annualRttDays": 6987,
+        "isForfaitDays": false,
+        "isActive": true,
+        "days": [
+          5,
+          5
+        ]
+      }
+order: 1000

@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/auth/me"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Profil courant, rôles et features.resources/examples
+order: 6000

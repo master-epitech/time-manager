@@ -1,0 +1,20 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/dashboard/team?team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+  - key: date_from
+    value: "2016-11-11"
+    disabled: false
+  - key: date_to
+    value: "2016-11-11"
+    disabled: false
+settings: {}
+examples: ./.resources/Indicateurs d'une équipe.resources/examples
+order: 2000

@@ -1,0 +1,31 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams/:team_id/manager"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+  pathVariables:
+    - key: team_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "userId": "48aeea15-3099-c3ee-18d5-ebdab58fb95e",
+        "startDate": "1961-01-22",
+        "endDate": "1969-12-13",
+        "reason": "string"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

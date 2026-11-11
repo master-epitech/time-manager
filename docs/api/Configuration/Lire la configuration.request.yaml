@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/config"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Lire la configuration.resources/examples
+order: 1000

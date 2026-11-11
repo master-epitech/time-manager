@@ -1,0 +1,76 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/clock-events/to-validate?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    scope: SELF
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "4b3a9817-d7ee-5fac-1358-4be219c710c1",
+            "userId": "181f3a2e-c870-9fa7-e2b5-c0d9d15b3c22",
+            "type": "ENTREE",
+            "workMode": "BUREAU",
+            "occurredAt": "1990-01-11T16:58:16.574Z",
+            "status": "CORRIGE",
+            "user": {
+              "id": "09dc9680-126f-b823-e091-482d75a437f1",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "upWS9QhVkKmL@bddLzbgzZFRQzgDYBwAi.hzt",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": true
+            },
+            "teamId": "48eccf51-f713-b080-9480-76519b799e44",
+            "declaredAt": "1963-10-11T12:58:01.097Z",
+            "source": "APP",
+            "validatedBy": "727963c5-8900-6aa9-8dba-d5a09916e693",
+            "validatedAt": "1973-08-17T00:06:34.926Z",
+            "validationNote": "string"
+          },
+          {
+            "id": "b769b0c5-2e1d-97b0-4d7f-1a519c2aab06",
+            "userId": "3e212d98-ea41-bfee-f843-5e9ffe3ba0d8",
+            "type": "ENTREE",
+            "workMode": "BUREAU",
+            "occurredAt": "2004-03-20T09:59:30.347Z",
+            "status": "VALIDE",
+            "user": {
+              "id": "c75d61df-e297-c829-9df9-b2f01e7b1616",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "qEk1P4gm@jrcfkjTAGYeYnZa.yxw",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "teamId": "f1914563-19c9-0a3f-a80f-d25c28005f26",
+            "declaredAt": "2016-02-04T13:24:14.833Z",
+            "source": "APP",
+            "validatedBy": "06979832-2e1e-9530-62b2-ea2bb5045c5d",
+            "validatedAt": "1957-07-12T21:38:20.496Z",
+            "validationNote": "string"
+          }
+        ]
+      }
+order: 1000

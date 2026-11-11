@@ -1,0 +1,19 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/absences"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "typeId": 1,
+      "startDate": "1953-02-26",
+      "endDate": "2025-01-09",
+      "reason": "string"
+    }
+settings: {}
+examples: ./.resources/Demander une absence.resources/examples
+order: 7000

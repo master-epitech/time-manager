@@ -1,0 +1,62 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams?department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "e12ce6c8-8263-075d-0987-0783736e5752",
+            "departmentId": "eef5f8b9-13b9-5052-5c4e-f5f3578268e7",
+            "code": "string",
+            "name": "string",
+            "isActive": false,
+            "membersCount": 1594,
+            "manager": {
+              "id": "63362a58-c088-99ec-5732-3a365fccd186",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "PMDb6qIGe1@LYoUfEYOpQrOlBhfzWdMQyBfyqbXYzUz.zl",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            }
+          },
+          {
+            "id": "38bcad38-b04f-7cd0-d4ce-d1ed0fc9d2f0",
+            "departmentId": "7479b0e4-7c81-cc9a-f9fe-dbcc37eb2a68",
+            "code": "string",
+            "name": "string",
+            "isActive": false,
+            "membersCount": 3759,
+            "manager": {
+              "id": "96cb2f62-2751-3a88-b2fd-eb108a00f7f7",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "lc9CDG@RZnasRrrKdLrhyBEJzwQ.ygj",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": false
+            }
+          }
+        ]
+      }
+order: 1000

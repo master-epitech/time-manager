@@ -1,0 +1,44 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/telework"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "3d902974-15c5-6b33-44f1-7772900a8c1e",
+            "userId": "c78c67b7-112c-9c94-520a-6c17a428fadc",
+            "isoWeekday": 3178,
+            "startDate": "2003-10-11",
+            "endDate": "1993-07-03",
+            "validatedBy": "ba726593-256f-b47c-77be-6322e284aae3",
+            "validatedAt": "1975-07-09T11:44:00.758Z"
+          },
+          {
+            "id": "af7e4931-a4fa-2778-1161-deb9b2fd1e3b",
+            "userId": "e04982a8-94ef-ae16-7f0f-f04fa316592f",
+            "isoWeekday": 785,
+            "startDate": "1971-10-14",
+            "endDate": "1974-05-14",
+            "validatedBy": "0cb7cc43-c4f2-d634-1f1a-00ce4a150c75",
+            "validatedAt": "1965-02-16T02:47:52.586Z"
+          }
+        ]
+      }
+order: 1000

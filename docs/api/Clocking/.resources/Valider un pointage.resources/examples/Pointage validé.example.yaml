@@ -1,0 +1,53 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/clock-events/:event_id/validate"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: event_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "note": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "cb6d0d62-06a2-f882-23b1-975a5009b316",
+        "userId": "7b9a5581-2722-2a9e-cfd4-01a2c673f7c3",
+        "type": "SORTIE",
+        "workMode": "REMOTE",
+        "occurredAt": "1988-01-27T16:58:12.495Z",
+        "status": "VALIDE",
+        "user": {
+          "id": "d928f7f9-4b32-1487-69f5-53de84e6000e",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "Zw2A@CGyfGPPMoiPgzTuGLpJZgKkPZSpYVMs.wkq",
+          "matricule": "string",
+          "status": "SORTI",
+          "isActive": true
+        },
+        "teamId": "eaed7fb1-e14c-bb16-2a1f-7719fb28b302",
+        "declaredAt": "1969-02-16T11:49:41.932Z",
+        "source": "APP",
+        "validatedBy": "97b3acf0-1334-5e51-3d2f-4eac4f9ed446",
+        "validatedAt": "1992-08-27T20:27:16.944Z",
+        "validationNote": "string"
+      }
+order: 1000

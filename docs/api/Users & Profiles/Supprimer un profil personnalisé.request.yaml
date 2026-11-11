@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/profiles/:profile_code"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  - key: profile_code
+    value: SITE_MANAGER
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Supprimer un profil personnalisé.resources/examples
+order: 15000

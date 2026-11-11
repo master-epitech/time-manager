@@ -1,0 +1,43 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/clock-events/validate-batch"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "eventIds": [
+          "94709585-a79e-945f-5dc3-631e88f512bf"
+        ],
+        "decision": "REJETER",
+        "note": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "validated": 1411,
+        "rejected": 8596,
+        "skipped": [
+          {
+            "id": "e4107278-7ec3-aac7-43cb-512d925e95c2",
+            "reason": "string"
+          },
+          {
+            "id": "ac10c10d-6b84-2ebf-140f-3a1fa713a8b0",
+            "reason": "string"
+          }
+        ]
+      }
+order: 1000

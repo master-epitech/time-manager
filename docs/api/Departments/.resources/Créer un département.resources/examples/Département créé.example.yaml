@@ -1,0 +1,42 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/departments"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": "IT",
+        "name": "IT"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "0cda3380-f8ec-1f63-0f35-89084a8b240b",
+        "code": "string",
+        "name": "string",
+        "isActive": true,
+        "manager": {
+          "id": "07da1f12-e2fd-52b9-dd27-246d29d340b8",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "lc0vq6unr@B.wrvz",
+          "matricule": "string",
+          "status": "SORTI",
+          "isActive": false
+        },
+        "teamsCount": 4934
+      }
+order: 1000

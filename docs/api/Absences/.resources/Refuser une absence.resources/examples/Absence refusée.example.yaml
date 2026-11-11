@@ -1,0 +1,51 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/absences/:absence_id/reject"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: absence_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "reason": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "e462503d-5e8a-6a08-471a-eca4febb8e6c",
+        "userId": "857632a0-5701-fffc-5081-1d8070215384",
+        "user": {
+          "id": "c73762de-4d49-ee7c-3a3a-1acd4815fd70",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "mMsUU1qwPdzB@wDtWZwsVyTeJLTPhlGyMo.yv",
+          "matricule": "string",
+          "status": "ACTIF",
+          "isActive": false
+        },
+        "typeId": 786,
+        "typeCode": "string",
+        "typeLabel": "string",
+        "startDate": "1966-12-09",
+        "endDate": "2025-08-22",
+        "reason": "string",
+        "status": "EN_ATTENTE",
+        "daysCount": 191
+      }
+order: 1000

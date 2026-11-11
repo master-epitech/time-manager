@@ -1,0 +1,27 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/users/:user_id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "firstName": "string",
+      "lastName": "string",
+      "email": "HTrvr@GBfhwObYysqSPeT.esb",
+      "phone": "string",
+      "jobTitle": "string",
+      "status": "SUSPENDU",
+      "isActive": false
+    }
+settings: {}
+examples: ./.resources/Modifier un compte.resources/examples
+order: 4000

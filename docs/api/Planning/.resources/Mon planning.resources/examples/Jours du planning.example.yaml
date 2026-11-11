@@ -1,0 +1,121 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/planning?date_from=2016-11-11&date_to=2016-11-11"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "date": "2000-03-27",
+            "workMode": "REMOTE",
+            "holiday": "string",
+            "absence": "string",
+            "sessions": [
+              {
+                "userId": "4acec002-94ca-4973-6f4a-1192f1e651e8",
+                "user": {
+                  "id": "c5e83f01-9446-ef41-dc6c-194b79733ddc",
+                  "firstName": "string",
+                  "lastName": "string",
+                  "email": "6uzU3NoAz@xItqugogkFwJBX.ki",
+                  "matricule": "string",
+                  "status": "SORTI",
+                  "isActive": true
+                },
+                "teamId": "a48c0d91-c65a-62c4-dfef-91a06433ccb5",
+                "workDate": "1972-04-12",
+                "entryAt": "1977-04-22T23:26:23.585Z",
+                "exitAt": "1988-04-29T02:59:35.865Z",
+                "minutes": 7933,
+                "status": "OPEN",
+                "workMode": "BUREAU"
+              },
+              {
+                "userId": "8693c59e-15e8-6cd5-8f70-3ec6de21d40a",
+                "user": {
+                  "id": "3ee87ba9-171b-cf3d-eb90-66cd94bcdcc7",
+                  "firstName": "string",
+                  "lastName": "string",
+                  "email": "QpHdoSdFxyi@W.fa",
+                  "matricule": "string",
+                  "status": "ACTIF",
+                  "isActive": false
+                },
+                "teamId": "f35f0fd7-d3f5-129a-a06a-51e6010bef82",
+                "workDate": "2007-08-03",
+                "entryAt": "2025-05-03T15:52:26.254Z",
+                "exitAt": "1984-01-19T04:22:43.661Z",
+                "minutes": 9420,
+                "status": "COMPLETE",
+                "workMode": "REMOTE"
+              }
+            ]
+          },
+          {
+            "date": "1975-03-05",
+            "workMode": "BUREAU",
+            "holiday": "string",
+            "absence": "string",
+            "sessions": [
+              {
+                "userId": "e3f1df41-a2de-c2c9-8d21-aa4a7f62f5b1",
+                "user": {
+                  "id": "69ea7141-da75-9025-4760-606cc5ccae65",
+                  "firstName": "string",
+                  "lastName": "string",
+                  "email": "1kiPT9VBaLdP@TwoJYDAknDgZYnMcortu.ugl",
+                  "matricule": "string",
+                  "status": "ACTIF",
+                  "isActive": true
+                },
+                "teamId": "eb143dd0-5f5b-304d-b4f9-5cfdc7b1d395",
+                "workDate": "2006-06-27",
+                "entryAt": "1971-11-17T05:10:44.246Z",
+                "exitAt": "1952-01-10T20:42:52.441Z",
+                "minutes": 7904,
+                "status": "COMPLETE",
+                "workMode": "REMOTE"
+              },
+              {
+                "userId": "ee86c776-23e3-6eb5-f4b2-bed717ffd74c",
+                "user": {
+                  "id": "a8632b53-88ea-17df-14a1-b7da633749e8",
+                  "firstName": "string",
+                  "lastName": "string",
+                  "email": "1a1t@jCWwwkRvrIhYpixrWeXJRWxxOLnOlf.cnox",
+                  "matricule": "string",
+                  "status": "ACTIF",
+                  "isActive": true
+                },
+                "teamId": "fcca96a4-39e4-feb5-b8f1-fd7874eacf90",
+                "workDate": "1992-01-24",
+                "entryAt": "1992-09-24T09:31:44.596Z",
+                "exitAt": "1984-09-18T05:34:41.981Z",
+                "minutes": 3948,
+                "status": "OPEN",
+                "workMode": "BUREAU"
+              }
+            ]
+          }
+        ]
+      }
+order: 1000

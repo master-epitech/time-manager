@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/me/clock-sessions?date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+settings: {}
+examples: ./.resources/Mes sessions de travail.resources/examples
+order: 3000

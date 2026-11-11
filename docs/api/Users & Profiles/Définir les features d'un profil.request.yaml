@@ -1,0 +1,24 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/profiles/:profile_code/features"
+method: PUT
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: profile_code
+    value: MANAGER
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "features": [
+        "string",
+        "string"
+      ]
+    }
+settings: {}
+examples: ./.resources/Définir les features d'un profil.resources/examples
+order: 19000

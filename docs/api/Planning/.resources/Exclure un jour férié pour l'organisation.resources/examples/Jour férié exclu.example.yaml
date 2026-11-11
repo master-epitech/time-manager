@@ -1,0 +1,40 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/public-holidays/:holiday_id/exclude"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: holiday_id
+      value: "1862"
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "reason": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 5667,
+        "scope": "REGIONAL",
+        "countryCode": "string",
+        "regionCode": "string",
+        "day": "1969-04-23",
+        "label": "string",
+        "isExcluded": true,
+        "exclusionReason": "string"
+      }
+order: 1000

@@ -1,0 +1,22 @@
+$kind: http-request
+name: Envoyer/renvoyer l'invitation Microsoft 365
+description: ""
+url: "{{base_url}}/users/:user_id/microsoft-invitation"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: user_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "redirectUri": "http://ttzXGBQDeIbxsO.hbpwxWwpB.8DXENrXncvV1QPU7gEmZ6x6bNXqW5ut1nyN,sT8Y4Ylge"
+    }
+settings: {}
+examples: ./.resources/Envoyer-renvoyer l'invitation Microsoft 365.resources/examples
+order: 7000

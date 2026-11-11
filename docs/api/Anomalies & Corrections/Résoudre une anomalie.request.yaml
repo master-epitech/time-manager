@@ -1,0 +1,21 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/anomalies/:anomaly_id/resolve"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: anomaly_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "note": "string"
+    }
+settings: {}
+examples: ./.resources/Résoudre une anomalie.resources/examples
+order: 4000

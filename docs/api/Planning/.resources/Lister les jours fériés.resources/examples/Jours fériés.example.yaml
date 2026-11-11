@@ -1,0 +1,49 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/public-holidays?year=2026&scope=ENTREPRISE"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    year: "2026"
+    scope: ENTREPRISE
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": 5267,
+            "scope": "NATIONAL",
+            "countryCode": "string",
+            "regionCode": "string",
+            "day": "2011-12-25",
+            "label": "string",
+            "isExcluded": true,
+            "exclusionReason": "string"
+          },
+          {
+            "id": 1596,
+            "scope": "NATIONAL",
+            "countryCode": "string",
+            "regionCode": "string",
+            "day": "1982-01-31",
+            "label": "string",
+            "isExcluded": false,
+            "exclusionReason": "string"
+          }
+        ]
+      }
+order: 1000

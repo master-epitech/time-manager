@@ -1,0 +1,15 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/exports/clock-events?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: text/csv
+queryParams:
+  scope: SELF
+  team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+settings: {}
+examples: ./.resources/Exporter les pointages (CSV).resources/examples
+order: 9000

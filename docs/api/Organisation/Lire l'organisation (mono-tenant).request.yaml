@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/organisation"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Lire l'organisation (mono-tenant).resources/examples
+order: 1000

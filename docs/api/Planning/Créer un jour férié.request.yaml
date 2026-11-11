@@ -1,0 +1,20 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/public-holidays"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "scope": "ENTREPRISE",
+      "day": "1956-09-17",
+      "label": "string",
+      "countryCode": "FR",
+      "regionCode": "string"
+    }
+settings: {}
+examples: ./.resources/Créer un jour férié.resources/examples
+order: 14000

@@ -1,0 +1,33 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/absence-types"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "code": "RECUP",
+        "label": "Récupération",
+        "hasCounter": false
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 5158,
+        "code": "string",
+        "label": "string",
+        "hasCounter": true
+      }
+order: 1000

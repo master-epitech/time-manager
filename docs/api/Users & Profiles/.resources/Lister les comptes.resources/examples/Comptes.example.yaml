@@ -1,0 +1,88 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users?page=1&page_size=20&q=lea&status=ACTIF&profile_code=MANAGER&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    page: "1"
+    page_size: "20"
+    q: lea
+    status: ACTIF
+    profile_code: MANAGER
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "798e0dd1-8bb5-c0f8-3b4b-b323af31f185",
+            "firstName": "string",
+            "lastName": "string",
+            "email": "iOy3@xSmjjwzYhnckxRFTbYvKtr.phig",
+            "matricule": "string",
+            "status": "SUSPENDU",
+            "isActive": true,
+            "phone": "string",
+            "contractType": "AUTRE",
+            "hireDate": "1949-08-16",
+            "departureDate": "2001-11-10",
+            "jobTitle": "string",
+            "departmentId": "3e30b570-80ab-4a48-127c-c6e452ab6172",
+            "departmentName": "string",
+            "teamId": "9f650e60-b770-50dc-fd03-5e8bdb92ae34",
+            "teamName": "string",
+            "profileCodes": [
+              "string",
+              "string"
+            ],
+            "authProvider": "BOTH",
+            "invitationStatus": "PENDING"
+          },
+          {
+            "id": "66d20bd0-b2a6-ad62-2692-0e5003724074",
+            "firstName": "string",
+            "lastName": "string",
+            "email": "RPATT08-3Vi@mpBbNkSV.pr",
+            "matricule": "string",
+            "status": "ACTIF",
+            "isActive": false,
+            "phone": "string",
+            "contractType": "AUTRE",
+            "hireDate": "2004-08-14",
+            "departureDate": "2018-09-26",
+            "jobTitle": "string",
+            "departmentId": "749bb233-8905-a072-5cac-3eb86d0df9af",
+            "departmentName": "string",
+            "teamId": "8436b6ac-a61c-43f5-74ee-9b40722eee68",
+            "teamName": "string",
+            "profileCodes": [
+              "string",
+              "string"
+            ],
+            "authProvider": "BOTH",
+            "invitationStatus": "EXPIRED"
+          }
+        ],
+        "meta": {
+          "page": 2012,
+          "pageSize": 313,
+          "total": 4412,
+          "totalPages": 6673
+        }
+      }
+order: 1000

@@ -1,0 +1,74 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/anomalies?status=RESOLUE"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    status: RESOLUE
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "6acf6bae-69ac-40fb-2e71-234f1739279b",
+            "userId": "6a96d3d3-a97f-296f-2b8b-212e704198de",
+            "user": {
+              "id": "1a3dbc54-25e3-636d-d1fb-09583cd6c3ec",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "jmVbSDDtWO-3Xh@ldqkksOpEjfanSsYjWlqZhK.in",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": true
+            },
+            "anomalyDate": "1999-01-22",
+            "type": "string",
+            "clockEventId": "60877f8c-224b-08d7-d091-4cecaeeaf3c8",
+            "status": "RESOLUE",
+            "absenceTypeId": 6945,
+            "employeeComment": "string",
+            "justifiedAt": "1972-09-18T02:16:54.865Z",
+            "decidedBy": "6280b308-1dfd-492c-2586-6595fa36af67",
+            "decidedAt": "2001-09-21T15:15:00.127Z",
+            "detail": "string"
+          },
+          {
+            "id": "84d1ce58-5a78-18c0-9639-fbca1e2a4eab",
+            "userId": "ab3bd9ba-21bd-f369-f428-fe384986269b",
+            "user": {
+              "id": "a1313d23-b303-81cf-c8d8-901fd1f75036",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "L01vXYbZRbv@lBm.xpkb",
+              "matricule": "string",
+              "status": "SUSPENDU",
+              "isActive": true
+            },
+            "anomalyDate": "1998-03-16",
+            "type": "string",
+            "clockEventId": "52f3b8f7-774f-3b7c-5779-448bc9683f91",
+            "status": "A_JUSTIFIER",
+            "absenceTypeId": 8644,
+            "employeeComment": "string",
+            "justifiedAt": "1988-07-11T13:41:17.256Z",
+            "decidedBy": "70610fac-9c41-6961-f711-23338420f599",
+            "decidedAt": "1982-11-24T18:40:24.385Z",
+            "detail": "string"
+          }
+        ]
+      }
+order: 1000

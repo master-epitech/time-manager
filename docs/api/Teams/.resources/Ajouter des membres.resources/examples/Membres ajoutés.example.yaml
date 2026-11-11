@@ -1,0 +1,49 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams/:team_id/members"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: team_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "userIds": [
+          "e15492ea-1f36-87be-1f6e-0a517e415dcd"
+        ]
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "6530d408-0cbb-9a69-7ca6-22667f100698",
+        "departmentId": "afb6bd74-e968-5882-4d6b-6401c639d7ed",
+        "code": "string",
+        "name": "string",
+        "isActive": true,
+        "membersCount": 801,
+        "manager": {
+          "id": "cd67fbca-3b04-52ac-92a2-7e5f6458d77a",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "qemeHlLUs9@R.ccu",
+          "matricule": "string",
+          "status": "ACTIF",
+          "isActive": true
+        }
+      }
+order: 1000

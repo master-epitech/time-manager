@@ -1,0 +1,54 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/anomalies/:anomaly_id/justify"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: anomaly_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "reason": "string",
+        "absenceTypeCode": "string"
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "44936e98-0bcb-d247-cc34-94ae18817347",
+        "userId": "44d56ce9-d6fd-a03c-bb5b-4de74e128a2e",
+        "user": {
+          "id": "a88e2573-97b9-8fdc-96d7-93d54b165e67",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "wbP-LgLx8PwrU@obE.yax",
+          "matricule": "string",
+          "status": "SORTI",
+          "isActive": false
+        },
+        "anomalyDate": "2008-12-06",
+        "type": "string",
+        "clockEventId": "d1013eba-a825-d6e7-1ccf-50868d533f36",
+        "status": "A_JUSTIFIER",
+        "absenceTypeId": 3444,
+        "employeeComment": "string",
+        "justifiedAt": "1972-09-06T01:43:26.296Z",
+        "decidedBy": "a33b0649-d5a4-6552-1294-5e833b4ba627",
+        "decidedAt": "1990-05-13T14:46:07.188Z",
+        "detail": "string"
+      }
+order: 1000

@@ -1,0 +1,32 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/work-schedules/:schedule_id"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: schedule_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "name": "string",
+      "weeklyMinutes": 3986,
+      "startTime": "string",
+      "endTime": "string",
+      "lateToleranceMin": 6787,
+      "annualRttDays": 5998,
+      "isForfaitDays": true,
+      "isActive": false,
+      "days": [
+        4,
+        1
+      ]
+    }
+settings: {}
+examples: ./.resources/Modifier un régime.resources/examples
+order: 9000

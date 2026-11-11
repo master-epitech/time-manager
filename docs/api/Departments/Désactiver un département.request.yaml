@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/departments/:department_id"
+method: DELETE
+headers:
+  Accept: application/json
+pathVariables:
+  - key: department_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Désactiver un département.resources/examples
+order: 4000

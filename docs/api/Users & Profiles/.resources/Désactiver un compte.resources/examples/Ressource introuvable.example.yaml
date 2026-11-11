@@ -1,0 +1,44 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/deactivate"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 404
+  statusText: Not Found
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "string",
+          "details": [
+            {
+              "field": "string",
+              "message": "string"
+            },
+            {
+              "field": "string",
+              "message": "string"
+            }
+          ]
+        },
+        "requestId": "d3fd3af2-385e-c8e7-4e10-d161bcbc8291"
+      }
+order: 2000

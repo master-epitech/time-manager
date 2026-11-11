@@ -1,0 +1,55 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/corrections"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "workDate": "2003-11-23",
+        "proposedEntryAt": "1991-02-25T14:57:22.277Z",
+        "proposedExitAt": "1957-06-24T22:47:04.240Z",
+        "workMode": "BUREAU",
+        "reason": "string",
+        "anomalyId": "1a6c90ce-8ca4-ac30-14ef-c2dc59b65adb"
+      }
+response:
+  statusCode: 201
+  statusText: Created
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "5110eea8-992d-1ee6-2741-ab2048b8fcb5",
+        "userId": "369b4078-10dd-9601-1e5e-00e6c41c7948",
+        "user": {
+          "id": "36fd4f12-9a23-d18b-10b8-9dc0bbba3497",
+          "firstName": "string",
+          "lastName": "string",
+          "email": "xmpWuAx0G2A@cWGMBaHSBzfpIrPhDKnu.oyhr",
+          "matricule": "string",
+          "status": "SUSPENDU",
+          "isActive": true
+        },
+        "anomalyId": "3795f7c4-010a-a0ad-0397-72c4ec8092e2",
+        "workDate": "1978-05-31",
+        "proposedEntryAt": "1950-11-07T09:22:15.829Z",
+        "proposedExitAt": "2023-10-30T10:25:49.940Z",
+        "workMode": "BUREAU",
+        "reason": "string",
+        "status": "EN_ATTENTE",
+        "decidedBy": "6190512d-f4c2-75c7-9b6f-d4132c6c36e1",
+        "decidedAt": "2007-04-17T10:29:45.561Z",
+        "decisionNote": "string",
+        "createdEntryId": "a5f87433-febc-38f0-fe02-64b753e5e450",
+        "createdExitId": "22bbabae-b4ac-62c0-ebc2-a021dd9106fc"
+      }
+order: 1000

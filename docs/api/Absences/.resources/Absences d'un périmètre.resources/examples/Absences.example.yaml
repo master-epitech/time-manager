@@ -1,0 +1,83 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/absences?scope=SELF&status=REFUSEE&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11&page=1&page_size=20"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    scope: SELF
+    status: REFUSEE
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+    page: "1"
+    page_size: "20"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "2ad74941-e129-4623-a03a-760857eca203",
+            "userId": "d63ebedd-e57d-8585-c630-6c13c3b6107b",
+            "user": {
+              "id": "07ac8aa5-bdbf-9496-dfdb-87b5310a4ab2",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "X7q5G7239sbi@hndKxGpwMVknuPuiwY.rd",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "typeId": 4107,
+            "typeCode": "string",
+            "typeLabel": "string",
+            "startDate": "1962-06-08",
+            "endDate": "1976-12-25",
+            "reason": "string",
+            "status": "EN_ATTENTE",
+            "daysCount": 1265
+          },
+          {
+            "id": "c1d26aeb-8636-56e8-caa5-d05ddcac2f33",
+            "userId": "eae51bcc-daf6-0836-4539-7ef1cb007139",
+            "user": {
+              "id": "257d7787-bc3f-62db-4f9b-baf7fe4ca894",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "wo2R4@yrKXdvfdHEBvHXiupaEgJXCLTJprm.sgxx",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": false
+            },
+            "typeId": 7085,
+            "typeCode": "string",
+            "typeLabel": "string",
+            "startDate": "2006-07-27",
+            "endDate": "1979-02-23",
+            "reason": "string",
+            "status": "APPROUVEE",
+            "daysCount": 7637
+          }
+        ],
+        "meta": {
+          "page": 9448,
+          "pageSize": 1724,
+          "total": 4486,
+          "totalPages": 7776
+        }
+      }
+order: 1000

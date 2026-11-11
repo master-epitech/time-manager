@@ -1,0 +1,18 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/clock-events?scope=SELF&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&date_from=2016-11-11&date_to=2016-11-11&status=REJETE&page=1&page_size=20"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  scope: SELF
+  team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+  status: REJETE
+  page: "1"
+  page_size: "20"
+settings: {}
+examples: ./.resources/Pointages d'un périmètre.resources/examples
+order: 4000

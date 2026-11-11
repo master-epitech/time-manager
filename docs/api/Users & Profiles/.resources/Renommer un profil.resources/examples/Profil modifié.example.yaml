@@ -1,0 +1,39 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/profiles/:profile_code"
+  method: PATCH
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: profile_code
+      value: SITE_MANAGER
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "label": "string",
+        "hierarchyLevel": 1116
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": 1126,
+        "code": "MANAGER",
+        "label": "Team Manager",
+        "hierarchyLevel": 185,
+        "isSystem": false,
+        "featuresCount": 877
+      }
+order: 1000

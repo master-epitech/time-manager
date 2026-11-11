@@ -1,0 +1,22 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/profiles/:profile_code"
+method: PATCH
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: profile_code
+    value: SITE_MANAGER
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "label": "string",
+      "hierarchyLevel": 1116
+    }
+settings: {}
+examples: ./.resources/Renommer un profil.resources/examples
+order: 14000

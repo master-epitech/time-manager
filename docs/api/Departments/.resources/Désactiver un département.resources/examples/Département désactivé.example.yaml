@@ -1,0 +1,25 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/departments/:department_id"
+  method: DELETE
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+  pathVariables:
+    - key: department_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 204
+  statusText: No Content
+  headers:
+    Content-Type: text/plain
+  body:
+    type: text
+    content: ""
+order: 1000

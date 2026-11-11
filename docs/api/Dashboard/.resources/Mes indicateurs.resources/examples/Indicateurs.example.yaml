@@ -1,0 +1,38 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/dashboard/me?date_from=2016-11-11&date_to=2016-11-11"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "scope": "ALL",
+        "scopeId": "1e748377-06b5-e0a3-63dc-84b7cf84c121",
+        "from": "1971-03-02",
+        "to": "1993-12-22",
+        "headcount": 2395,
+        "presenceRate": 5850.010206922889,
+        "lateCount": 5990,
+        "overtimeMinutes": 3700,
+        "absenceCount": 4964,
+        "anomalyCount": 240,
+        "anonymized": false
+      }
+order: 1000

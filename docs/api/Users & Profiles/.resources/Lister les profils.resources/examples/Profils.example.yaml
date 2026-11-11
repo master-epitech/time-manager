@@ -1,0 +1,42 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/profiles"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": 5069,
+            "code": "MANAGER",
+            "label": "Team Manager",
+            "hierarchyLevel": 1461,
+            "isSystem": true,
+            "featuresCount": 8832
+          },
+          {
+            "id": 6143,
+            "code": "MANAGER",
+            "label": "Team Manager",
+            "hierarchyLevel": 9906,
+            "isSystem": false,
+            "featuresCount": 3876
+          }
+        ]
+      }
+order: 1000

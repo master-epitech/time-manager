@@ -1,0 +1,14 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/telework/:plan_id/validate"
+method: POST
+headers:
+  Accept: application/json
+pathVariables:
+  - key: plan_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Valider un télétravail.resources/examples
+order: 6000

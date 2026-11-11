@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/features"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/Lister les features.resources/examples
+order: 17000

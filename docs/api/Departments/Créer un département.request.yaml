@@ -1,0 +1,17 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/departments"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+body:
+  type: json
+  content: |-
+    {
+      "code": "IT",
+      "name": "IT"
+    }
+settings: {}
+examples: ./.resources/Créer un département.resources/examples
+order: 2000

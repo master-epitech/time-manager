@@ -1,0 +1,67 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/me/clock-sessions?date_from=2016-11-11&date_to=2016-11-11"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "userId": "dce4731f-b127-21f1-6f83-3f918482410e",
+            "user": {
+              "id": "d65f70eb-97f8-3f7d-19f1-bc0b34de5b6e",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "CllohFB@CstajrgJdmtoKwyUvc.kv",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "teamId": "a30e7670-846b-f740-d2f3-0e41f7e79a5c",
+            "workDate": "2024-06-23",
+            "entryAt": "1953-01-03T05:39:29.700Z",
+            "exitAt": "1981-02-10T13:41:01.952Z",
+            "minutes": 24,
+            "status": "COMPLETE",
+            "workMode": "REMOTE"
+          },
+          {
+            "userId": "378ce6a6-3d58-ae34-ffd2-94f2ce97e236",
+            "user": {
+              "id": "bd3d8f4b-f10c-d9d9-8da5-20df665e7b61",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "ZMS1pYIwcVE@WMNRVXwKkSSuixxLiIRgDdNZrIuAfBClJ.xyok",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": false
+            },
+            "teamId": "afc3f90e-d63d-1807-e9ad-69435d265401",
+            "workDate": "1979-04-24",
+            "entryAt": "2021-01-31T13:39:05.743Z",
+            "exitAt": "1976-10-13T06:28:36.836Z",
+            "minutes": 5272,
+            "status": "COMPLETE",
+            "workMode": "REMOTE"
+          }
+        ]
+      }
+order: 1000

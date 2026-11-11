@@ -1,0 +1,23 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams/:team_id/members"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "userIds": [
+        "e15492ea-1f36-87be-1f6e-0a517e415dcd"
+      ]
+    }
+settings: {}
+examples: ./.resources/Ajouter des membres.resources/examples
+order: 6000

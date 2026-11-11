@@ -1,0 +1,85 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/anomalies?scope=SELF&status=RESOLUE&team_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&department_id=c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8&page=1&page_size=20"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    scope: SELF
+    status: RESOLUE
+    team_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    department_id: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    page: "1"
+    page_size: "20"
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "2f9b5256-fe3f-fd4b-01b3-cbac55027fb7",
+            "userId": "c64d0b30-aa64-2692-7cbe-898d1de3b5b1",
+            "user": {
+              "id": "6b47c9fa-b636-0290-2fea-aebf5e2e293c",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "zekPZEw3t@DHsBiSazPWabRwHZdqyAoe.mm",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": true
+            },
+            "anomalyDate": "1948-09-21",
+            "type": "string",
+            "clockEventId": "53fe958c-5964-874d-c30e-603b2e47f31b",
+            "status": "OUVERTE",
+            "absenceTypeId": 9965,
+            "employeeComment": "string",
+            "justifiedAt": "1950-06-08T10:34:00.458Z",
+            "decidedBy": "8f95bb55-c488-2959-6e4b-0a42ac21e48d",
+            "decidedAt": "2010-09-27T08:27:13.130Z",
+            "detail": "string"
+          },
+          {
+            "id": "16efe955-0810-5c92-c0b1-76bad95e2c9d",
+            "userId": "7c0c764d-a3c8-03a5-b887-2e42888cef63",
+            "user": {
+              "id": "062a21a5-0967-327c-a564-1ebc87e42291",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "WXUVXOj7LPRpswf@nrDpitiRacauncIjMFTvMlGmJVxmRvS.tw",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "anomalyDate": "2016-02-18",
+            "type": "string",
+            "clockEventId": "49817427-fd47-45c8-100c-70b894de6b5b",
+            "status": "RESOLUE",
+            "absenceTypeId": 9311,
+            "employeeComment": "string",
+            "justifiedAt": "1966-03-28T06:04:10.968Z",
+            "decidedBy": "9ab43502-fe9f-a19c-5f27-475722b696ca",
+            "decidedAt": "2016-05-10T14:27:27.692Z",
+            "detail": "string"
+          }
+        ],
+        "meta": {
+          "page": 5237,
+          "pageSize": 6195,
+          "total": 2466,
+          "totalPages": 2785
+        }
+      }
+order: 1000

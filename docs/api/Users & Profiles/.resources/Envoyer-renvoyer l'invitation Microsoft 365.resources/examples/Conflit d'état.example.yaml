@@ -1,0 +1,47 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/microsoft-invitation"
+  method: POST
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "redirectUri": "http://ttzXGBQDeIbxsO.hbpwxWwpB.8DXENrXncvV1QPU7gEmZ6x6bNXqW5ut1nyN,sT8Y4Ylge"
+      }
+response:
+  statusCode: 409
+  statusText: Conflict
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "error": {
+          "code": "VALIDATION_ERROR",
+          "message": "string",
+          "details": [
+            {
+              "field": "string",
+              "message": "string"
+            },
+            {
+              "field": "string",
+              "message": "string"
+            }
+          ]
+        },
+        "requestId": "d3fd3af2-385e-c8e7-4e10-d161bcbc8291"
+      }
+order: 6000

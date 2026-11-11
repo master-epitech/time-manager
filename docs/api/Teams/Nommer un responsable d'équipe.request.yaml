@@ -1,0 +1,24 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/teams/:team_id/manager"
+method: POST
+headers:
+  Content-Type: application/json
+  Accept: application/json
+pathVariables:
+  - key: team_id
+    value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+    disabled: false
+    description: "(Required) "
+body:
+  type: json
+  content: |-
+    {
+      "userId": "48aeea15-3099-c3ee-18d5-ebdab58fb95e",
+      "startDate": "1961-01-22",
+      "endDate": "1969-12-13",
+      "reason": "string"
+    }
+settings: {}
+examples: ./.resources/Nommer un responsable d'équipe.resources/examples
+order: 8000

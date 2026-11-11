@@ -1,0 +1,324 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/teams/:team_id/planning?date_from=2016-11-11&date_to=2016-11-11"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  queryParams:
+    date_from: 2016-11-11
+    date_to: 2016-11-11
+  pathVariables:
+    - key: team_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "user": {
+              "id": "190010c1-a460-e0ba-debd-c9324d1c4eb0",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "xHqJqrbRdj@VfZS.ho",
+              "matricule": "string",
+              "status": "ACTIF",
+              "isActive": true
+            },
+            "days": [
+              {
+                "date": "1979-01-17",
+                "workMode": "REMOTE",
+                "holiday": "string",
+                "absence": "string",
+                "sessions": [
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  },
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  }
+                ]
+              },
+              {
+                "date": "1965-09-19",
+                "workMode": "REMOTE",
+                "holiday": "string",
+                "absence": "string",
+                "sessions": [
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  },
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "user": {
+              "id": "bd314a27-729d-2318-02ac-315835ff0667",
+              "firstName": "string",
+              "lastName": "string",
+              "email": "QgjezMhP@wasrxwqDgJcgSZChVlUIiMt.jikj",
+              "matricule": "string",
+              "status": "SORTI",
+              "isActive": false
+            },
+            "days": [
+              {
+                "date": "2025-01-18",
+                "workMode": "REMOTE",
+                "holiday": "string",
+                "absence": "string",
+                "sessions": [
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  },
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  }
+                ]
+              },
+              {
+                "date": "1992-12-05",
+                "workMode": "REMOTE",
+                "holiday": "string",
+                "absence": "string",
+                "sessions": [
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  },
+                  {
+                    "userId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "user": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "teamId": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workDate": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "entryAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "exitAt": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "minutes": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "status": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    },
+                    "workMode": {
+                      "value": "<Error: Too many levels of nesting to fake this schema>"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+order: 1000

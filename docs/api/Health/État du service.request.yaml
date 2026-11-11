@@ -1,0 +1,9 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/health"
+method: GET
+headers:
+  Accept: application/json
+settings: {}
+examples: ./.resources/État du service.resources/examples
+order: 1000

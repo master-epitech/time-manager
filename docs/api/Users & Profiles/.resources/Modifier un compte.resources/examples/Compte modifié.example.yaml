@@ -1,0 +1,60 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id"
+  method: PATCH
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: json
+    content: |-
+      {
+        "firstName": "string",
+        "lastName": "string",
+        "email": "HTrvr@GBfhwObYysqSPeT.esb",
+        "phone": "string",
+        "jobTitle": "string",
+        "status": "SUSPENDU",
+        "isActive": false
+      }
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "id": "3f73814b-5dc5-5315-6e81-bbcf6ed75444",
+        "firstName": "string",
+        "lastName": "string",
+        "email": "sqqiozsuBBgoP@JIsgtLh.gs",
+        "matricule": "string",
+        "status": "SORTI",
+        "isActive": true,
+        "phone": "string",
+        "contractType": "AUTRE",
+        "hireDate": "1972-07-28",
+        "departureDate": "1962-06-21",
+        "jobTitle": "string",
+        "departmentId": "57afd009-c8c5-ff10-4026-2e8e5fa93cd8",
+        "departmentName": "string",
+        "teamId": "0e1ee70a-dc63-2c82-2e09-e9fd13c540d9",
+        "teamName": "string",
+        "profileCodes": [
+          "string",
+          "string"
+        ],
+        "authProvider": "PASSWORD",
+        "invitationStatus": "PENDING"
+      }
+order: 1000

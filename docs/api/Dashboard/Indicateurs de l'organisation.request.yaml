@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/dashboard/organisation?date_from=2016-11-11&date_to=2016-11-11"
+method: GET
+headers:
+  Accept: application/json
+queryParams:
+  date_from: "2016-11-11"
+  date_to: "2016-11-11"
+settings: {}
+examples: ./.resources/Indicateurs de l'organisation.resources/examples
+order: 4000

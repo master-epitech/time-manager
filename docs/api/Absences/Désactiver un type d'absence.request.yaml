@@ -1,0 +1,12 @@
+$kind: http-request
+description: ""
+url: "{{base_url}}/absence-types/:type_id"
+method: DELETE
+pathVariables:
+  - key: type_id
+    value: "1862"
+    disabled: false
+    description: "(Required) "
+settings: {}
+examples: ./.resources/Désactiver un type d'absence.resources/examples
+order: 4000

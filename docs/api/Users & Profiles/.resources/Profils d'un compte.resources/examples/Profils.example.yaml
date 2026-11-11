@@ -1,0 +1,63 @@
+$kind: http-example
+request:
+  url: "{{base_url}}/users/:user_id/profiles"
+  method: GET
+  headers:
+    - key: Authorization
+      value: Bearer <token>
+      description: "Added as a part of security scheme: bearer"
+    - key: Accept
+      value: application/json
+  pathVariables:
+    - key: user_id
+      value: c5f95c86-ef19-f8c3-8bd8-3cf0f41860e8
+      disabled: false
+      description: "(Required) "
+  body:
+    type: text
+    content: ""
+response:
+  statusCode: 200
+  statusText: OK
+  headers:
+    Content-Type: application/json
+  body:
+    type: json
+    content: |-
+      {
+        "data": [
+          {
+            "id": "7d571f9c-e766-5d0a-a42e-0df9f8474650",
+            "profile": {
+              "id": 2287,
+              "code": "MANAGER",
+              "label": "Team Manager",
+              "hierarchyLevel": 8188,
+              "isSystem": true,
+              "featuresCount": 6925
+            },
+            "startDate": "1966-06-25",
+            "endDate": "1984-12-03",
+            "reason": "string",
+            "orderPriority": 9874,
+            "isActive": true
+          },
+          {
+            "id": "6c3fd2ac-e714-3554-568e-d1460e9fe176",
+            "profile": {
+              "id": 4174,
+              "code": "MANAGER",
+              "label": "Team Manager",
+              "hierarchyLevel": 9096,
+              "isSystem": false,
+              "featuresCount": 5487
+            },
+            "startDate": "1956-10-03",
+            "endDate": "2011-12-04",
+            "reason": "string",
+            "orderPriority": 4274,
+            "isActive": false
+          }
+        ]
+      }
+order: 1000
