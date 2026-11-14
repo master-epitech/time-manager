@@ -1,0 +1,112 @@
+.carte {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  padding: var(--espace-5);
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-l);
+  box-shadow: var(--ombre-carte);
+}
+
+.entete {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.titre {
+  font-size: 16px;
+  font-weight: 700;
+}
+.horloge {
+  font-family: var(--police-mono);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--temps);
+}
+
+.lieu {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--temps-teinte);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: var(--espace-2);
+}
+.bouton {
+  flex: 1;
+  min-height: 56px;
+  font-size: 17px;
+}
+.plus {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border: 2px solid var(--temps);
+  border-radius: 50%;
+  color: var(--temps);
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+}
+.plus:hover {
+  background: var(--lilas-teinte-legere);
+}
+
+.etat,
+.vide {
+  font-size: 13px;
+  color: var(--gris);
+}
+.mono {
+  font-family: var(--police-mono);
+  font-weight: 700;
+  color: var(--encre);
+}
+
+.erreur {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  padding: var(--espace-2) var(--espace-3);
+  border-radius: var(--rayon-m);
+  background: var(--anomalie-teinte);
+  color: var(--anomalie-texte);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: var(--espace-3);
+  border-top: 1px solid var(--bordure-ligne);
+}
+.sessions ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sessions li {
+  font-size: 15px;
+  font-weight: 500;
+}
+.sousTitre {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--gris);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
