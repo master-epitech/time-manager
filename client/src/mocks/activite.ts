@@ -60,8 +60,10 @@ function session(
   sortie: string | null,
   workMode: WorkMode = "BUREAU",
 ): WorkSession {
-  const entryAt = `${workDate}T${entree}:00.000Z`;
-  const exitAt = sortie ? `${workDate}T${sortie}:00.000Z` : null;
+  // Heures saisies en heure de Paris (UTC+1 en novembre), stockées en UTC comme le renverra l'API
+  const versUtc = (heure: string) => new Date(`${workDate}T${heure}:00+01:00`).toISOString();
+  const entryAt = versUtc(entree);
+  const exitAt = sortie ? versUtc(sortie) : null;
   const minutes = exitAt ? Math.round((Date.parse(exitAt) - Date.parse(entryAt)) / 60000) : 0;
   return {
     userId,
