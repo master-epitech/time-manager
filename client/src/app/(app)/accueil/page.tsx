@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { EcranAVenir, PageHeader } from "@/components/layout";
+import { AccueilEmploye } from "./AccueilEmploye";
 
 export const metadata: Metadata = { title: "Accueil · Time Manager" };
 
+/** Accueil de l'employé : pointage du jour, demandes, anomalies, soldes (TM-77, maquette 02) */
 export default function AccueilPage() {
-  return (
-    <>
-      <PageHeader titre="Accueil" sousTitre="Bonjour Paul · votre journée et vos soldes" />
-      <EcranAVenir maquette="02 · Accueil employé" />
-    </>
-  );
+  return <AccueilEmploye />;
 }

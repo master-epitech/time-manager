@@ -22,6 +22,7 @@ const PATHS = {
   org: "M9 3h6v5H9V3ZM3 16h6v5H3v-5ZM15 16h6v5h-6v-5ZM12 8v4M6 16v-4h12v4",
   "user-circle": "M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM6.5 18.5c1.2-1.9 3.2-3 5.5-3s4.3 1.1 5.5 3",
   chevrons: "M11 17l-5-5 5-5M18 17l-5-5 5-5",
+  logout: "M15 4h4v16h-4M10 8l-4 4 4 4M6 12h10",
   // Utilitaires
   check: "M5 12l5 5 9-10",
   info: "M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 11v5M12 8h.01",
