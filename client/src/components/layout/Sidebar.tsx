@@ -4,21 +4,25 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Icon } from "@/components/ui";
 import { cn } from "@/lib/cn";
-import { LIEN_COMPTE, SECTIONS_NAV, type CompteurNav, type LienNav } from "@/lib/navigation";
-import type { UtilisateurConnecte } from "@/lib/session-factice";
+import type { MeContext } from "@/lib/api";
+import { LIBELLE_PROFIL } from "@/lib/auth/roles";
+import { useSession } from "@/lib/auth/SessionProvider";
+import { LIEN_COMPTE, sectionsPour, type CompteurNav, type LienNav } from "@/lib/navigation";
 import { useNavAgrandie } from "@/lib/useNavAgrandie";
 import styles from "./Sidebar.module.css";
 
 type SidebarProps = {
-  utilisateur: UtilisateurConnecte;
+  me: MeContext;
   compteurs: Record<CompteurNav, number>;
 };
 
 /** Menu de gauche : réduit par défaut (icônes), agrandissable, filtré selon le rôle. */
-export function Sidebar({ utilisateur, compteurs }: SidebarProps) {
+export function Sidebar({ me, compteurs }: SidebarProps) {
   const pathname = usePathname();
+  const { deconnecter } = useSession();
   const [agrandie, basculer] = useNavAgrandie();
-  const sections = SECTIONS_NAV.filter((s) => s.roles.includes(utilisateur.role));
+  const { user, activeProfile } = me;
+  const sections = sectionsPour(activeProfile.code);
 
   const estActif = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
 
@@ -89,17 +93,35 @@ export function Sidebar({ utilisateur, compteurs }: SidebarProps) {
       </div>
 
       <div className={styles.pied}>
-        <ul>{renduLien(LIEN_COMPTE)}</ul>
+        <ul>
+          {renduLien(LIEN_COMPTE)}
+          <li>
+            <button
+              type="button"
+              className={styles.lien}
+              onClick={deconnecter}
+              title={agrandie ? undefined : "Se déconnecter"}
+            >
+              <span className={styles.icone} style={{ color: "var(--gris)" }}>
+                <Icon name="logout" />
+              </span>
+              <span className={styles.libelle}>Se déconnecter</span>
+            </button>
+          </li>
+        </ul>
         <div className={styles.utilisateur}>
           <span className={styles.avatar} aria-hidden="true">
-            {utilisateur.prenom[0]}
-            {utilisateur.nom[0]}
+            {user.firstName[0]}
+            {user.lastName[0]}
           </span>
           <span className={styles.libelle}>
             <strong>
-              {utilisateur.prenom} {utilisateur.nom}
+              {user.firstName} {user.lastName}
             </strong>
-            <small>{utilisateur.role === "manager" ? "Manager" : "Employé"} · {utilisateur.equipe}</small>
+            <small>
+              {LIBELLE_PROFIL[activeProfile.code]}
+              {user.teamName && ` · ${user.teamName}`}
+            </small>
           </span>
         </div>
       </div>
