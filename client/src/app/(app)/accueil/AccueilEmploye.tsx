@@ -8,7 +8,8 @@ import { Card, Icon } from "@/components/ui";
 import { api, ApiError, type Absence, type Anomaly, type CorrectionRequest, type LeaveBalance, type WorkSession } from "@/lib/api";
 import { useSession } from "@/lib/auth/SessionProvider";
 import { useMaintenant } from "@/lib/hooks/useMaintenant";
-import { ajouterJours, formatDateLongue, formatDuree, formatJourCourt, jourIso, lundiDe, minutesEntre } from "@/lib/temps";
+import { totalMinutes } from "@/lib/pointage";
+import { ajouterJours, formatDateLongue, formatDuree, formatJourCourt, jourIso, lundiDe } from "@/lib/temps";
 import styles from "./page.module.css";
 
 /**
@@ -114,13 +115,11 @@ export function AccueilEmploye() {
     );
   }
 
-  // Temps travaillé : sessions terminées + temps écoulé de la session en cours
-  const dureeSession = (s: WorkSession) => (s.status === "OPEN" ? minutesEntre(s.entryAt, maintenant) : s.minutes);
   const sessionsDuJour = donnees.sessions
     .filter((s) => s.workDate === aujourdhui)
     .sort((a, b) => a.entryAt.localeCompare(b.entryAt));
-  const minutesSemaine = donnees.sessions.reduce((total, s) => total + dureeSession(s), 0);
-  const minutesJour = sessionsDuJour.reduce((total, s) => total + dureeSession(s), 0);
+  const minutesSemaine = totalMinutes(donnees.sessions, maintenant);
+  const minutesJour = totalMinutes(sessionsDuJour, maintenant);
   const progression = Math.min(100, Math.round((minutesSemaine / MINUTES_DUES_SEMAINE) * 100));
 
   const congesEnAttente = donnees.absences.filter((a) => a.status === "EN_ATTENTE").length;

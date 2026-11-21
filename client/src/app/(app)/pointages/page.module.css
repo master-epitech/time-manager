@@ -1,0 +1,114 @@
+.chargement {
+  color: var(--gris);
+}
+
+/* Quatre indicateurs de la semaine */
+.resume {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--espace-4);
+}
+.indicateur {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-2);
+  padding: var(--espace-4) var(--espace-5);
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-l);
+  box-shadow: var(--ombre-carte);
+}
+.libelle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--gris);
+}
+.valeur {
+  font-family: var(--police-mono);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+.du {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--gris);
+}
+/* Indicateur à traiter : bordure + texte corail, en plus de l'icône */
+.alerte {
+  border-color: var(--anomalie);
+  border-top: 6px solid var(--anomalie);
+}
+.alerte .libelle,
+.alerte .valeur {
+  color: var(--anomalie-texte);
+}
+
+/* Tableau : défile horizontalement sur petit écran au lieu d'élargir la page */
+.cadreTableau {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-l);
+  box-shadow: var(--ombre-carte);
+}
+.tableau {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.tableau th,
+.tableau td {
+  padding: var(--espace-3) var(--espace-4);
+  text-align: left;
+  border-bottom: 1px solid var(--bordure-ligne);
+  vertical-align: middle;
+}
+.tableau thead th {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  background: var(--lilas-teinte-legere);
+}
+.tableau tbody th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tableau tbody tr:last-child > * {
+  border-bottom: none;
+}
+.aujourdhui {
+  background: var(--lilas-teinte-legere);
+}
+.mono {
+  font-family: var(--police-mono);
+}
+.manquant {
+  font-family: var(--police-texte);
+  font-weight: 600;
+  color: var(--anomalie-texte);
+}
+.discret {
+  color: var(--gris);
+}
+.statutAction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espace-2);
+}
+.statutAction a {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.note {
+  font-size: 13px;
+  color: var(--gris);
+}

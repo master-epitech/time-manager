@@ -62,3 +62,26 @@ export function formatJourCourt(jour: string): string {
   const nom = new Intl.DateTimeFormat("fr-FR", { timeZone: "UTC", weekday: "long" }).format(d);
   return `${nom.charAt(0).toUpperCase()}${nom.slice(1)} ${jour.slice(8, 10)}/${jour.slice(5, 7)}`;
 }
+
+/** Numéro de semaine ISO 8601 (la semaine 1 contient le premier jeudi de l'année) */
+export function numeroSemaine(jour: string): number {
+  const jeudi = new Date(`${ajouterJours(lundiDe(jour), 3)}T12:00:00Z`);
+  const debutAnnee = Date.UTC(jeudi.getUTCFullYear(), 0, 1);
+  return Math.floor((jeudi.getTime() - debutAnnee) / 86_400_000 / 7) + 1;
+}
+
+/** Période d'une semaine en clair, ex. "du lundi 9 au dimanche 15 novembre 2026" */
+export function formatSemaine(lundi: string): string {
+  const dimanche = ajouterJours(lundi, 6);
+  const fmt = (jour: string, options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat("fr-FR", { timeZone: "UTC", ...options }).format(new Date(`${jour}T12:00:00Z`));
+  const memeMois = lundi.slice(0, 7) === dimanche.slice(0, 7);
+  const debut = fmt(lundi, memeMois ? { weekday: "long", day: "numeric" } : { weekday: "long", day: "numeric", month: "long" });
+  return `du ${debut} au ${fmt(dimanche, { weekday: "long", day: "numeric", month: "long", year: "numeric" })}`;
+}
+
+/** Jour très court pour un tableau, ex. "2026-11-13" → "Ven. 13/11" */
+export function formatJourTableau(jour: string): string {
+  const nom = new Intl.DateTimeFormat("fr-FR", { timeZone: "UTC", weekday: "short" }).format(new Date(`${jour}T12:00:00Z`));
+  return `${nom.charAt(0).toUpperCase()}${nom.slice(1)} ${jour.slice(8, 10)}/${jour.slice(5, 7)}`;
+}

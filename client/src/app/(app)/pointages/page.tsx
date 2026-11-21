@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { EcranAVenir, PageHeader } from "@/components/layout";
+import { MesPointages } from "./MesPointages";
 
 export const metadata: Metadata = { title: "Mes pointages · Time Manager" };
 
+/** Historique des pointages de l'employé, semaine par semaine (TM-76, maquette 10) */
 export default function PointagesPage() {
-  return (
-    <>
-      <PageHeader titre="Mes pointages" sousTitre="Historique de vos entrées et sorties" />
-      <EcranAVenir maquette="10 · Mes pointages" />
-    </>
-  );
+  return <MesPointages />;
 }
