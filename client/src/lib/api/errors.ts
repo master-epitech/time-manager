@@ -37,6 +37,9 @@ const MESSAGES: Record<string, string> = {
   EMAIL_DOMAIN_NOT_ALLOWED: "L'adresse email doit appartenir au domaine de l'entreprise.",
   EMAIL_ALREADY_USED: "Un compte existe déjà avec cette adresse email.",
   CONFLICT: "Cette action entre en conflit avec des données existantes.",
+  TEAM_NOT_EMPTY: "L'équipe a encore des membres : transférez-les avant de la désactiver.",
+  TEAM_CODE_ALREADY_USED: "Une équipe utilise déjà ce code.",
+  MEMBER_STILL_ACTIVE: "Un employé actif doit rester dans une équipe : transférez-le plutôt que de le retirer.",
 };
 
 /** Code utilisé quand le code HTTP ne suffit pas à identifier l'erreur */
