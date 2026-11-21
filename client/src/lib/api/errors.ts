@@ -35,6 +35,8 @@ const MESSAGES: Record<string, string> = {
   POINTAGE_ALREADY_OPEN: "Vous avez déjà pointé votre arrivée.",
   POINTAGE_NO_OPEN_SESSION: "Vous devez pointer votre arrivée avant votre départ.",
   EMAIL_DOMAIN_NOT_ALLOWED: "L'adresse email doit appartenir au domaine de l'entreprise.",
+  EMAIL_ALREADY_USED: "Un compte existe déjà avec cette adresse email.",
+  CONFLICT: "Cette action entre en conflit avec des données existantes.",
 };
 
 /** Code utilisé quand le code HTTP ne suffit pas à identifier l'erreur */

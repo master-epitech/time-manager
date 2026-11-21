@@ -4,3 +4,4 @@ export { Button } from "./Button/Button";
 export { Card } from "./Card/Card";
 export { Icon, type IconName } from "./Icon/Icon";
 export { Input } from "./Input/Input";
+export { Select } from "./Select/Select";

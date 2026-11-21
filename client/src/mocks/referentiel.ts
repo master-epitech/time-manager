@@ -6,6 +6,7 @@
  */
 import type {
   AbsenceType,
+  Department,
   Feature,
   Organisation,
   Profile,
@@ -24,6 +25,14 @@ export const IDS = {
   lea: "55555555-5555-5555-5555-555555555506", // employée
   omar: "55555555-5555-5555-5555-555555555509", // employé
   ines: "55555555-5555-5555-5555-555555555510", // employée
+  // Compléments pour les écrans de gestion (absents du jeu SQL)
+  departementRh: "33333333-3333-3333-3333-333333333336",
+  equipeServiceClientN2: "44444444-4444-4444-4444-444444444444",
+  equipeRh: "44444444-4444-4444-4444-444444444445",
+  claire: "55555555-5555-5555-5555-555555555511", // RH
+  hugo: "55555555-5555-5555-5555-555555555512", // employé niveau 2
+  julien: "55555555-5555-5555-5555-555555555513", // parti le 30/09/2026
+  nina: "55555555-5555-5555-5555-555555555514", // invitation Microsoft en attente
 } as const;
 
 export const ORGANISATION: Organisation = {
@@ -40,9 +49,13 @@ export const ORGANISATION: Organisation = {
   isActive: true,
 };
 
-export const PROFILS: Record<"EMPLOYEE" | "MANAGER", Profile> = {
+export const PROFILS: Record<ProfileCode, Profile> = {
   EMPLOYEE: { id: 1, code: "EMPLOYEE", label: "Employee", hierarchyLevel: 5, isSystem: true },
   MANAGER: { id: 2, code: "MANAGER", label: "Team Manager", hierarchyLevel: 3, isSystem: true },
+  HR: { id: 3, code: "HR", label: "Human Resources", hierarchyLevel: 2, isSystem: true },
+  DIRECTOR: { id: 4, code: "DIRECTOR", label: "Director", hierarchyLevel: 2, isSystem: true },
+  CEO: { id: 5, code: "CEO", label: "Chief Executive Officer", hierarchyLevel: 1, isSystem: true },
+  SUPER_ADMIN: { id: 6, code: "SUPER_ADMIN", label: "Super Admin", hierarchyLevel: 0, isSystem: true },
 };
 
 /* ---------- Personnes ---------- */
@@ -54,6 +67,8 @@ function personne(
   jobTitle: string,
   profileCodes: ProfileCode[],
   hireDate: string,
+  /** Champs à remplacer (autre équipe, compte désactivé…) */
+  autres: Partial<User> = {},
 ): User {
   return {
     id,
@@ -73,6 +88,7 @@ function personne(
     profileCodes,
     authProvider: "BOTH",
     invitationStatus: "ACCEPTED",
+    ...autres,
   };
 }
 
@@ -80,6 +96,30 @@ export const KARIM = personne(IDS.karim, "Karim", "Benali", "TM-2020-00320", "Re
 export const LEA = personne(IDS.lea, "Léa", "Dubois", "TM-2024-00584", "Conseillère client", ["EMPLOYEE"], "2024-04-15");
 export const OMAR = personne(IDS.omar, "Omar", "Diallo", "TM-2024-00590", "Conseiller client", ["EMPLOYEE"], "2024-05-02");
 export const INES = personne(IDS.ines, "Inès", "Moreau", "TM-2025-00640", "Conseillère client", ["EMPLOYEE"], "2025-01-06");
+
+
+/* Personnes ajoutées pour les écrans de gestion */
+const EQUIPE_N2 = { teamId: IDS.equipeServiceClientN2, teamName: "Service Client — Niveau 2" };
+export const CLAIRE = personne(IDS.claire, "Claire", "Fontaine", "TM-2019-00210", "Chargée RH", ["HR", "EMPLOYEE"], "2019-09-02", {
+  departmentId: IDS.departementRh,
+  departmentName: "Ressources humaines",
+  teamId: IDS.equipeRh,
+  teamName: "RH — Administration du personnel",
+});
+export const HUGO = personne(IDS.hugo, "Hugo", "Lambert", "TM-2023-00512", "Conseiller expert", ["EMPLOYEE"], "2023-03-13", EQUIPE_N2);
+export const JULIEN = personne(IDS.julien, "Julien", "Garnier", "TM-2022-00455", "Conseiller client", ["EMPLOYEE"], "2022-06-01", {
+  status: "SORTI",
+  isActive: false,
+  departureDate: "2026-09-30",
+});
+export const NINA = personne(IDS.nina, "Nina", "Petit", "TM-2026-00702", "Conseillère client", ["EMPLOYEE"], "2026-12-01", {
+  contractType: "CDD",
+  authProvider: "MICROSOFT",
+  invitationStatus: "PENDING",
+});
+
+/** Tous les comptes de l'organisation (écran Gestion · Utilisateurs) */
+export const UTILISATEURS: User[] = [KARIM, LEA, OMAR, INES, NINA, JULIEN, HUGO, CLAIRE];
 
 /** Version courte, telle qu'imbriquée dans les réponses de l'API */
 export function resume(u: User): UserSummary {
@@ -96,6 +136,34 @@ export const EQUIPE_SERVICE_CLIENT_N1: Team = {
   membersCount: 3,
   manager: resume(KARIM),
 };
+
+export const DEPARTEMENTS: Department[] = [
+  { id: IDS.departementServiceClient, code: "CS", name: "Service Client", isActive: true, manager: null, teamsCount: 2 },
+  { id: IDS.departementRh, code: "RH", name: "Ressources humaines", isActive: true, manager: null, teamsCount: 1 },
+];
+
+/** Équipes ; le nombre de membres est recalculé par le client factice */
+export const EQUIPES: Team[] = [
+  EQUIPE_SERVICE_CLIENT_N1,
+  {
+    id: IDS.equipeServiceClientN2,
+    departmentId: IDS.departementServiceClient,
+    code: "CS-N2",
+    name: "Service Client — Niveau 2",
+    isActive: true,
+    membersCount: 1,
+    manager: null,
+  },
+  {
+    id: IDS.equipeRh,
+    departmentId: IDS.departementRh,
+    code: "RH-ADM",
+    name: "RH — Administration du personnel",
+    isActive: true,
+    membersCount: 1,
+    manager: resume(CLAIRE),
+  },
+];
 
 /* ---------- Droits (features) ---------- */
 const f = (code: string, label: string, scope: Feature["scope"], module: string): Feature => ({ code, label, scope, module });

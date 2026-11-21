@@ -11,6 +11,7 @@ import styles from "./page.module.css";
 const COMPTES_DEMO = [
   { libelle: "Léa (employée)", email: "lea.dubois@trinity-market.example" },
   { libelle: "Karim (manager)", email: "karim.benali@trinity-market.example" },
+  { libelle: "Claire (RH)", email: "claire.fontaine@trinity-market.example" },
 ];
 
 export function LoginForm() {

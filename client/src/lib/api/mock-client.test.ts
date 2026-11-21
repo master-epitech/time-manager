@@ -57,3 +57,52 @@ describe("sessions factices", () => {
     expect(data.map((s) => s.minutes)).toEqual([208, 215]);
   });
 });
+
+describe("gestion des comptes factice", () => {
+  const connecter = (email: string) => api.auth.login({ email, password: "demo" });
+
+  it("refuse la gestion des comptes à un employé", async () => {
+    await expect(api.users.list()).rejects.toMatchObject({ status: 403 });
+  });
+
+  it("limite le manager aux comptes de son équipe", async () => {
+    await connecter("karim.benali@trinity-market.example");
+    const { data } = await api.users.list();
+    expect(data.every((u) => u.teamId === "44444444-4444-4444-4444-444444444443")).toBe(true);
+    expect(data.some((u) => u.lastName === "Fontaine")).toBe(false);
+  });
+
+  it("laisse les RH voir tous les comptes et rechercher sans accents", async () => {
+    await connecter("claire.fontaine@trinity-market.example");
+    expect((await api.users.list()).meta?.total).toBe(8);
+    const { data } = await api.users.list({ q: "lea" });
+    expect(data.map((u) => u.firstName)).toEqual(["Léa"]);
+  });
+
+  it("crée un compte avec un matricule unique et refuse les doublons", async () => {
+    await connecter("karim.benali@trinity-market.example");
+    const nouveau = {
+      firstName: "Tom",
+      lastName: "Leroy",
+      email: "tom.leroy@trinity-market.example",
+      profileCode: "EMPLOYEE" as const,
+      teamId: "44444444-4444-4444-4444-444444444443",
+    };
+    const compte = await api.users.create(nouveau);
+    expect(compte.matricule).toMatch(/^TM-\d{4}-00703$/);
+    expect(compte.teamName).toBe("Service Client — Niveau 1");
+    await expect(api.users.create(nouveau)).rejects.toMatchObject({ code: "EMAIL_ALREADY_USED" });
+    await expect(api.users.create({ ...nouveau, email: "tom@gmail.com" })).rejects.toMatchObject({
+      code: "EMAIL_DOMAIN_NOT_ALLOWED",
+    });
+  });
+
+  it("désactive puis réactive un compte", async () => {
+    await connecter("karim.benali@trinity-market.example");
+    const omar = "55555555-5555-5555-5555-555555555509";
+    await api.users.deactivate(omar);
+    expect((await api.users.get(omar)).isActive).toBe(false);
+    await api.users.activate(omar);
+    expect((await api.users.get(omar)).isActive).toBe(true);
+  });
+});

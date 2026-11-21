@@ -12,7 +12,16 @@ import { mockClient } from "./mock-client";
 
 export const api: ApiClient = USE_MOCK_API ? mockClient : httpClient;
 
-export type { ApiClient, NewAbsence, NewCorrection, Periode } from "./client";
+export type {
+  Affectation,
+  ApiClient,
+  FiltresUtilisateurs,
+  NewAbsence,
+  NewCorrection,
+  NewUser,
+  Periode,
+  UserUpdate,
+} from "./client";
 export { ApiError } from "./errors";
 export { onSessionExpired } from "./session";
 export type * from "./types";
