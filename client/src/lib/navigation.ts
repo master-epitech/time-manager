@@ -1,6 +1,7 @@
 import type { IconName } from "@/components/ui/Icon/Icon";
+import type { ProfileCode } from "@/lib/api/types";
+import { TOUS_LES_PROFILS } from "@/lib/auth/roles";
 import type { Domain } from "./domains";
-import type { Role } from "./session-factice";
 
 export type CompteurNav = "aValider" | "anomalies";
 
@@ -16,16 +17,19 @@ export type LienNav = {
 
 export type SectionNav = {
   titre: string;
-  /** Rôles qui voient la section */
-  roles: Role[];
+  /** Profils qui voient la section ET ont le droit d'ouvrir ses pages */
+  profils: ProfileCode[];
   liens: LienNav[];
 };
 
-/** Structure du menu de gauche, identique aux maquettes. Une seule source pour toute l'app. */
+/**
+ * Structure du menu de gauche, identique aux maquettes, et droits d'accès aux pages.
+ * Une seule source : le menu ET la protection des pages (TM-65) en découlent.
+ */
 export const SECTIONS_NAV: SectionNav[] = [
   {
     titre: "Mon espace",
-    roles: ["employe", "manager"],
+    profils: TOUS_LES_PROFILS,
     liens: [
       { href: "/accueil", label: "Accueil", icone: "grid" },
       { href: "/pointages", label: "Pointages", icone: "clock", domaine: "temps" },
@@ -35,7 +39,7 @@ export const SECTIONS_NAV: SectionNav[] = [
   },
   {
     titre: "Équipe",
-    roles: ["manager"],
+    profils: ["MANAGER", "DIRECTOR"],
     liens: [
       { href: "/equipe/membres", label: "Membres", icone: "users" },
       { href: "/equipe/a-valider", label: "À valider", icone: "check-square", domaine: "demande", compteur: "aValider" },
@@ -44,12 +48,13 @@ export const SECTIONS_NAV: SectionNav[] = [
   },
   {
     titre: "Pilotage",
-    roles: ["manager"],
+    profils: ["MANAGER", "DIRECTOR", "CEO", "HR"],
     liens: [{ href: "/pilotage/indicateurs", label: "Indicateurs", icone: "chart", domaine: "temps" }],
   },
   {
     titre: "Gestion",
-    roles: ["manager"],
+    // Le manager crée les comptes de son équipe (SOCLE), les RH et l'admin gèrent tous les comptes
+    profils: ["MANAGER", "HR", "SUPER_ADMIN"],
     liens: [
       { href: "/gestion/utilisateurs", label: "Utilisateurs", icone: "user" },
       { href: "/gestion/equipes", label: "Équipes", icone: "org" },
@@ -59,3 +64,16 @@ export const SECTIONS_NAV: SectionNav[] = [
 
 /** Lien du bas du menu, visible par tous */
 export const LIEN_COMPTE: LienNav = { href: "/mon-compte", label: "Mon compte", icone: "user-circle" };
+
+/** Sections visibles pour un profil */
+export function sectionsPour(profil: ProfileCode): SectionNav[] {
+  return SECTIONS_NAV.filter((s) => s.profils.includes(profil));
+}
+
+/** Le profil a-t-il le droit d'ouvrir cette page ? Les pages hors menu (ex. Mon compte) sont ouvertes à tous. */
+export function peutAcceder(profil: ProfileCode, pathname: string): boolean {
+  const section = SECTIONS_NAV.find((s) =>
+    s.liens.some((l) => pathname === l.href || pathname.startsWith(`${l.href}/`)),
+  );
+  return !section || section.profils.includes(profil);
+}

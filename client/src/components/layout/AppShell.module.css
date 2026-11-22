@@ -32,3 +32,10 @@
 .evitement:focus {
   top: var(--espace-3);
 }
+
+.chargement {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  color: var(--gris);
+}
