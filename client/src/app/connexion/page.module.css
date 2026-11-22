@@ -1,0 +1,109 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: var(--espace-5) var(--espace-4);
+}
+
+.carte {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  padding: var(--espace-6);
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-l);
+  box-shadow: var(--ombre-carte);
+}
+
+.marque {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--rayon-m);
+  background: var(--lilas);
+  color: var(--surface);
+  font: 700 15px var(--police-mono);
+}
+
+.titre {
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.sousTitre,
+.aide,
+.mention {
+  color: var(--gris);
+  font-size: 14px;
+}
+
+.mention {
+  text-align: center;
+  font-size: 12px;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+}
+
+.separateur {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-3);
+  color: var(--gris);
+  font-size: 13px;
+}
+.separateur::before,
+.separateur::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--bordure-ligne);
+}
+
+.erreur,
+.info {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espace-2);
+  padding: var(--espace-3);
+  border-radius: var(--rayon-m);
+  font-size: 14px;
+  font-weight: 600;
+}
+.erreur {
+  background: var(--anomalie-teinte);
+  color: var(--anomalie-texte);
+}
+.info {
+  background: var(--lilas-teinte-legere);
+  color: var(--lilas-hover);
+}
+
+.demo {
+  padding-top: var(--espace-3);
+  border-top: 1px dashed var(--bordure);
+  font-size: 13px;
+  color: var(--gris);
+}
+
+.boutonsDemo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-2);
+  margin-top: var(--espace-2);
+}
