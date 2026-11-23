@@ -121,6 +121,16 @@ export type MeContext = {
   features: Feature[];
 };
 
+export type Department = {
+  id: Uuid;
+  code: string;
+  name: string;
+  isActive: boolean;
+  /** Directeur du département */
+  manager?: UserSummary | null;
+  teamsCount?: number;
+};
+
 export type Team = {
   id: Uuid;
   departmentId: Uuid;

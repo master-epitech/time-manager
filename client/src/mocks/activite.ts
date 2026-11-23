@@ -17,6 +17,7 @@ import type {
   WorkSession,
 } from "@/lib/api/types";
 import {
+  CLAIRE,
   FEATURES_EMPLOYE,
   FEATURES_MANAGER,
   IDS,
@@ -48,6 +49,17 @@ export const ME_MANAGER: MeContext = {
     { id: "a3000000-0000-0000-0000-000000000005", profile: PROFILS.EMPLOYEE, startDate: "2026-01-01", orderPriority: 2, isActive: true },
   ],
   activeProfile: PROFILS.MANAGER,
+  features: FEATURES_MANAGER,
+};
+
+export const ME_RH: MeContext = {
+  user: CLAIRE,
+  organisation: ORGANISATION,
+  profiles: [
+    { id: "a3000000-0000-0000-0000-000000000006", profile: PROFILS.HR, startDate: "2019-09-02", orderPriority: 1, isActive: true },
+    { id: "a3000000-0000-0000-0000-000000000007", profile: PROFILS.EMPLOYEE, startDate: "2019-09-02", orderPriority: 2, isActive: true },
+  ],
+  activeProfile: PROFILS.HR,
   features: FEATURES_MANAGER,
 };
 

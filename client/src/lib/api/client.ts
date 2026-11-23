@@ -6,7 +6,10 @@ import type {
   Anomaly,
   ClockEvent,
   ClockType,
+  AuthProvider,
+  ContractType,
   CorrectionRequest,
+  Department,
   IsoDate,
   IsoDateTime,
   Kpis,
@@ -15,6 +18,11 @@ import type {
   LoginRequest,
   MeContext,
   NotificationList,
+  Profile,
+  ProfileCode,
+  Team,
+  User,
+  UserStatus,
   Uuid,
   WorkMode,
   WorkSession,
@@ -33,6 +41,40 @@ export type NewCorrection = {
   reason: string;
   anomalyId?: Uuid;
 };
+
+/** Filtres de la liste des comptes (GET /users) ; un filtre vide est ignoré */
+export type FiltresUtilisateurs = {
+  q?: string;
+  status?: UserStatus;
+  profileCode?: ProfileCode;
+  teamId?: Uuid;
+  departmentId?: Uuid;
+  page?: number;
+  pageSize?: number;
+};
+
+/** Création d'un compte (POST /users) : pas d'inscription publique, le compte est créé par un manager ou les RH */
+export type NewUser = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  profileCode: ProfileCode;
+  departmentId?: Uuid;
+  teamId?: Uuid;
+  jobTitle?: string;
+  phone?: string;
+  contractType?: ContractType;
+  hireDate?: IsoDate;
+  authProvider?: AuthProvider;
+  /** Envoie l'invitation Microsoft 365 (authProvider MICROSOFT ou BOTH) */
+  sendMicrosoftInvitation?: boolean;
+};
+
+/** Modification d'un compte (PATCH /users/:id) */
+export type UserUpdate = Partial<Pick<User, "firstName" | "lastName" | "email" | "phone" | "jobTitle" | "status">>;
+
+/** Changement d'équipe ou de département (POST /users/:id/assignment) */
+export type Affectation = { departmentId: Uuid; teamId?: Uuid; startDate: IsoDate; jobTitle?: string };
 
 /**
  * Tout ce que le front peut demander à l'API, regroupé par domaine.
@@ -67,6 +109,24 @@ export interface ApiClient {
   };
   notifications: {
     list(): Promise<NotificationList>;
+  };
+  users: {
+    list(filtres?: FiltresUtilisateurs): Promise<ListResponse<User>>;
+    get(id: Uuid): Promise<User>;
+    create(user: NewUser): Promise<User>;
+    update(id: Uuid, modifications: UserUpdate): Promise<User>;
+    assign(id: Uuid, affectation: Affectation): Promise<User>;
+    deactivate(id: Uuid): Promise<void>;
+    activate(id: Uuid): Promise<void>;
+  };
+  teams: {
+    list(departmentId?: Uuid): Promise<ListResponse<Team>>;
+  };
+  departments: {
+    list(): Promise<ListResponse<Department>>;
+  };
+  profiles: {
+    list(): Promise<ListResponse<Profile>>;
   };
 }
 
@@ -112,5 +172,34 @@ export const httpClient: ApiClient = {
   },
   notifications: {
     list: () => request("GET", "/notifications"),
+  },
+  users: {
+    list: (f = {}) =>
+      request("GET", "/users", {
+        query: {
+          q: f.q,
+          status: f.status,
+          profile_code: f.profileCode,
+          team_id: f.teamId,
+          department_id: f.departmentId,
+          page: f.page,
+          page_size: f.pageSize,
+        },
+      }),
+    get: (id) => request("GET", `/users/${id}`),
+    create: (user) => request("POST", "/users", { body: user }),
+    update: (id, modifications) => request("PATCH", `/users/${id}`, { body: modifications }),
+    assign: (id, affectation) => request("POST", `/users/${id}/assignment`, { body: affectation }),
+    deactivate: (id) => request("POST", `/users/${id}/deactivate`),
+    activate: (id) => request("POST", `/users/${id}/activate`),
+  },
+  teams: {
+    list: (departmentId) => request("GET", "/teams", { query: { department_id: departmentId } }),
+  },
+  departments: {
+    list: () => request("GET", "/departments"),
+  },
+  profiles: {
+    list: () => request("GET", "/profiles"),
   },
 };
