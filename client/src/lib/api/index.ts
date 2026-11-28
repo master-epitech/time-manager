@@ -18,8 +18,11 @@ export type {
   FiltresUtilisateurs,
   NewAbsence,
   NewCorrection,
+  NewTeam,
   NewUser,
+  NominationManager,
   Periode,
+  TeamUpdate,
   UserUpdate,
 } from "./client";
 export { ApiError } from "./errors";

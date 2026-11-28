@@ -76,6 +76,15 @@ export type UserUpdate = Partial<Pick<User, "firstName" | "lastName" | "email" |
 /** Changement d'équipe ou de département (POST /users/:id/assignment) */
 export type Affectation = { departmentId: Uuid; teamId?: Uuid; startDate: IsoDate; jobTitle?: string };
 
+/** Création d'une équipe (POST /teams) */
+export type NewTeam = { departmentId: Uuid; code: string; name: string };
+
+/** Modification d'une équipe (PATCH /teams/:id) */
+export type TeamUpdate = Partial<Pick<Team, "name" | "isActive">>;
+
+/** Nomination du responsable d'une équipe (POST /teams/:id/manager) */
+export type NominationManager = { userId: Uuid; startDate: IsoDate; reason?: string };
+
 /**
  * Tout ce que le front peut demander à l'API, regroupé par domaine.
  * Deux implémentations respectent ce contrat : l'API réelle (ci-dessous) et les données
@@ -121,6 +130,13 @@ export interface ApiClient {
   };
   teams: {
     list(departmentId?: Uuid): Promise<ListResponse<Team>>;
+    create(team: NewTeam): Promise<Team>;
+    update(id: Uuid, modifications: TeamUpdate): Promise<Team>;
+    /** Désactive l'équipe ; refusé (409) tant qu'elle a des membres */
+    deactivate(id: Uuid): Promise<void>;
+    addMembers(id: Uuid, userIds: Uuid[]): Promise<Team>;
+    removeMember(id: Uuid, userId: Uuid): Promise<void>;
+    setManager(id: Uuid, nomination: NominationManager): Promise<void>;
   };
   departments: {
     list(): Promise<ListResponse<Department>>;
@@ -195,6 +211,12 @@ export const httpClient: ApiClient = {
   },
   teams: {
     list: (departmentId) => request("GET", "/teams", { query: { department_id: departmentId } }),
+    create: (team) => request("POST", "/teams", { body: team }),
+    update: (id, modifications) => request("PATCH", `/teams/${id}`, { body: modifications }),
+    deactivate: (id) => request("DELETE", `/teams/${id}`),
+    addMembers: (id, userIds) => request("POST", `/teams/${id}/members`, { body: { userIds } }),
+    removeMember: (id, userId) => request("DELETE", `/teams/${id}/members/${userId}`),
+    setManager: (id, nomination) => request("POST", `/teams/${id}/manager`, { body: nomination }),
   },
   departments: {
     list: () => request("GET", "/departments"),

@@ -1,0 +1,219 @@
+.grille {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espace-5);
+  align-items: flex-start;
+}
+
+/* Colonne de gauche : une carte par équipe */
+.liste {
+  flex: 1 1 280px;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-3);
+}
+@media (max-width: 720px) {
+  .liste {
+    max-width: none;
+  }
+}
+.carteEquipe {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-1);
+  min-height: var(--cible-min);
+  padding: var(--espace-4);
+  border: 1px solid var(--bordure);
+  border-left: 6px solid var(--bordure);
+  border-radius: var(--rayon-l);
+  background: var(--surface);
+  color: var(--encre);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.carteEquipe:hover {
+  background: var(--lilas-teinte-legere);
+}
+.carteActive {
+  border-color: var(--lilas);
+  border-left-color: var(--lilas);
+  background: var(--lilas-teinte-legere);
+}
+.carteInactive {
+  opacity: 0.75;
+}
+.nomEquipe {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-weight: 700;
+}
+.etiquette {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--demande-teinte);
+  color: var(--demande);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* Colonne de droite : fiche ou formulaire */
+.detail {
+  flex: 999 1 480px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  padding: var(--espace-5);
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-top: 6px solid var(--lilas);
+  border-radius: var(--rayon-l);
+  box-shadow: var(--ombre-carte);
+}
+.detailEntete {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--espace-3);
+}
+.detailTitre {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  font-size: 20px;
+  font-weight: 700;
+}
+.boutons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--espace-2);
+}
+
+.hierarchie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--espace-4);
+  padding: var(--espace-4);
+  border-radius: var(--rayon-m);
+  background: var(--lilas-teinte-legere);
+}
+.hierarchie > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-1);
+}
+.petitTitre {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+}
+.valeur {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--espace-2);
+  font-weight: 600;
+}
+.choix {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--espace-2);
+}
+.choix > div:first-child {
+  flex: 1 1 220px;
+}
+
+.membresEntete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sousTitre {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cadreTableau {
+  overflow-x: auto;
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon-m);
+}
+.tableau {
+  width: 100%;
+  min-width: 420px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.tableau th,
+.tableau td {
+  padding: var(--espace-3) var(--espace-4);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--bordure-ligne);
+}
+.tableau thead th {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gris);
+  background: var(--lilas-teinte-legere);
+}
+.tableau tbody th {
+  font-weight: 400;
+}
+.tableau tbody th strong {
+  display: block;
+  font-weight: 600;
+}
+.tableau tbody tr:last-child > * {
+  border-bottom: none;
+}
+
+.formulaire {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espace-4);
+  max-width: 480px;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  padding: var(--espace-3) var(--espace-4);
+  border-radius: var(--rayon-m);
+  background: var(--lilas-teinte);
+  font-weight: 600;
+}
+.erreurGlobale {
+  display: flex;
+  align-items: center;
+  gap: var(--espace-2);
+  padding: var(--espace-3);
+  border-radius: var(--rayon-m);
+  background: var(--anomalie-teinte);
+  color: var(--anomalie-texte);
+  font-weight: 600;
+}
+.secondaire {
+  display: block;
+  font-size: 13px;
+  color: var(--gris);
+}
+.mono {
+  font-family: var(--police-mono);
+}
+
+.inactif {
+  background: var(--fond);
+  color: var(--gris);
+}

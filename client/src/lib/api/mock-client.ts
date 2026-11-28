@@ -27,6 +27,7 @@ const COMPTES: Record<string, MeContext> = {
 /* État modifiable pendant la session (repart des données factices au rechargement) */
 let sessions: WorkSession[] = mocks.SESSIONS_EQUIPE.map((s) => ({ ...s }));
 let utilisateurs: User[] = mocks.UTILISATEURS.map((u) => ({ ...u }));
+let equipesBrutes: Team[] = mocks.EQUIPES.map((e) => ({ ...e }));
 
 function erreur(status: number, code: string, details?: unknown): ApiError {
   return new ApiError(status, code, messageFor(code), details);
@@ -51,7 +52,7 @@ const GESTION_COMPLETE = ["HR", "SUPER_ADMIN"];
 function equipesGerees(me: MeContext): string[] | null {
   const profil = me.activeProfile.code;
   if (GESTION_COMPLETE.includes(profil)) return null;
-  if (profil === "MANAGER") return mocks.EQUIPES.filter((e) => e.manager?.id === me.user.id).map((e) => e.id);
+  if (profil === "MANAGER") return equipesBrutes.filter((e) => e.manager?.id === me.user.id).map((e) => e.id);
   throw erreur(403, "FORBIDDEN");
 }
 
@@ -71,10 +72,40 @@ function remplacer(compte: User): User {
 
 /** Équipes avec le nombre de membres actifs recalculé */
 function equipes(): Team[] {
-  return mocks.EQUIPES.map((e) => ({
+  return equipesBrutes.map((e) => ({
     ...e,
     membersCount: utilisateurs.filter((u) => u.teamId === e.id && u.isActive).length,
   }));
+}
+
+/** Équipe existante que l'utilisateur connecté peut gérer (membres) ; 403/404 sinon */
+function equipeGeree(id: string): Team {
+  const perimetre = equipesGerees(utilisateurConnecte());
+  const equipe = equipesBrutes.find((e) => e.id === id);
+  if (!equipe) throw erreur(404, "NOT_FOUND");
+  if (perimetre && !perimetre.includes(id)) throw erreur(403, "FORBIDDEN");
+  return equipe;
+}
+
+/** Créer, renommer, désactiver une équipe ou nommer son responsable : RH et administrateurs seulement */
+function verifierGestionComplete(): void {
+  if (equipesGerees(utilisateurConnecte()) !== null) throw erreur(403, "FORBIDDEN");
+}
+
+/** Rattache un compte à une équipe (ou le détache avec null) */
+function rattacher(userId: string, equipe: Team | null): void {
+  const departement = equipe ? mocks.DEPARTEMENTS.find((d) => d.id === equipe.departmentId) : undefined;
+  utilisateurs = utilisateurs.map((u) =>
+    u.id === userId
+      ? {
+          ...u,
+          teamId: equipe?.id ?? null,
+          teamName: equipe?.name ?? null,
+          departmentId: departement?.id ?? u.departmentId,
+          departmentName: departement?.name ?? u.departmentName,
+        }
+      : u,
+  );
 }
 
 /** Prochain matricule : TM-<année>-<numéro sur 5 chiffres>, unique et jamais réutilisé */
@@ -275,7 +306,7 @@ export const mockClient: ApiClient = {
         throw erreur(403, "FORBIDDEN");
       }
 
-      const equipe = mocks.EQUIPES.find((e) => e.id === nouveau.teamId);
+      const equipe = equipesBrutes.find((e) => e.id === nouveau.teamId && e.isActive);
       const departement = mocks.DEPARTEMENTS.find((d) => d.id === (nouveau.departmentId ?? equipe?.departmentId));
       const authProvider = nouveau.authProvider ?? "MICROSOFT";
       const compte: User = {
@@ -314,7 +345,7 @@ export const mockClient: ApiClient = {
       const compte = compteGere(id);
       const perimetre = equipesGerees(utilisateurConnecte());
       if (perimetre && !perimetre.includes(affectation.teamId ?? "")) throw erreur(403, "FORBIDDEN");
-      const equipe = mocks.EQUIPES.find((e) => e.id === affectation.teamId);
+      const equipe = equipesBrutes.find((e) => e.id === affectation.teamId && e.isActive);
       const departement = mocks.DEPARTEMENTS.find((d) => d.id === affectation.departmentId);
       if (!departement) throw erreur(400, "VALIDATION_ERROR");
       return remplacer({
@@ -344,6 +375,75 @@ export const mockClient: ApiClient = {
       utilisateurConnecte();
       return liste(equipes().filter((e) => !departmentId || e.departmentId === departmentId));
     },
+    async create(nouvelle) {
+      await attendre();
+      verifierGestionComplete();
+      const code = nouvelle.code.trim().toUpperCase();
+      const details = [
+        !code && { field: "code", message: "Code obligatoire" },
+        !nouvelle.name.trim() && { field: "name", message: "Nom obligatoire" },
+        !mocks.DEPARTEMENTS.some((d) => d.id === nouvelle.departmentId) && { field: "departmentId", message: "Département inconnu" },
+      ].filter(Boolean);
+      if (details.length > 0) throw erreur(400, "VALIDATION_ERROR", details);
+      if (equipesBrutes.some((e) => e.code === code)) throw erreur(409, "TEAM_CODE_ALREADY_USED");
+      const equipe: Team = {
+        id: crypto.randomUUID(),
+        departmentId: nouvelle.departmentId,
+        code,
+        name: nouvelle.name.trim(),
+        isActive: true,
+        membersCount: 0,
+        manager: null,
+      };
+      equipesBrutes = [...equipesBrutes, equipe];
+      return equipe;
+    },
+    async update(id, modifications) {
+      await attendre();
+      verifierGestionComplete();
+      const equipe = equipeGeree(id);
+      const modifiee = { ...equipe, ...modifications, ...(modifications.name ? { name: modifications.name.trim() } : {}) };
+      equipesBrutes = equipesBrutes.map((e) => (e.id === id ? modifiee : e));
+      // Le nom de l'équipe est recopié sur les comptes de ses membres
+      utilisateurs = utilisateurs.map((u) => (u.teamId === id ? { ...u, teamName: modifiee.name } : u));
+      return equipes().find((e) => e.id === id)!;
+    },
+    async deactivate(id) {
+      await attendre();
+      verifierGestionComplete();
+      equipeGeree(id);
+      if (utilisateurs.some((u) => u.teamId === id && u.isActive)) throw erreur(409, "TEAM_NOT_EMPTY");
+      equipesBrutes = equipesBrutes.map((e) => (e.id === id ? { ...e, isActive: false } : e));
+    },
+    async addMembers(id, userIds) {
+      await attendre();
+      const equipe = equipeGeree(id);
+      if (!equipe.isActive) throw erreur(409, "CONFLICT");
+      // Un employé appartient à une seule équipe à la fois : l'ajout le retire de la précédente
+      for (const userId of userIds) {
+        if (!utilisateurs.some((u) => u.id === userId)) throw erreur(400, "VALIDATION_ERROR");
+        rattacher(userId, equipe);
+      }
+      return equipes().find((e) => e.id === id)!;
+    },
+    async removeMember(id, userId) {
+      await attendre();
+      equipeGeree(id);
+      const membre = utilisateurs.find((u) => u.id === userId && u.teamId === id);
+      if (!membre) throw erreur(404, "NOT_FOUND");
+      // Un employé actif doit toujours avoir une équipe : on le transfère (addMembers) au lieu de le retirer
+      if (membre.isActive) throw erreur(409, "MEMBER_STILL_ACTIVE");
+      if (equipesBrutes.find((e) => e.id === id)?.manager?.id === userId) throw erreur(409, "CONFLICT"); // nommer un autre responsable d'abord
+      rattacher(userId, null);
+    },
+    async setManager(id, nomination) {
+      await attendre();
+      verifierGestionComplete();
+      equipeGeree(id);
+      const manager = utilisateurs.find((u) => u.id === nomination.userId && u.isActive);
+      if (!manager) throw erreur(400, "VALIDATION_ERROR");
+      equipesBrutes = equipesBrutes.map((e) => (e.id === id ? { ...e, manager: mocks.resume(manager) } : e));
+    },
   },
 
   departments: {
@@ -367,4 +467,5 @@ export const mockClient: ApiClient = {
 export function resetMockData(): void {
   sessions = mocks.SESSIONS_EQUIPE.map((s) => ({ ...s }));
   utilisateurs = mocks.UTILISATEURS.map((u) => ({ ...u }));
+  equipesBrutes = mocks.EQUIPES.map((e) => ({ ...e }));
 }
